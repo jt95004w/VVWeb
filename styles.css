@@ -1,0 +1,213 @@
+/* ===== BASE & VARIABLES ===== */
+:root {
+    --gold: #C9A255;
+    --purple: #7A3FB6;
+    --black: #000;
+    --white: #fff;
+    --gray-dark: #1a1a1a;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Arial", sans-serif;
+    background-color: var(--black);
+    color: var(--white);
+    line-height: 1.6;
+  }
+  
+  /* ===== HEADER ===== */
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--gray-dark);
+    padding: 1rem 2rem;
+  }
+  .logo-img {
+    width: 150px; /* Adjust as needed */
+    object-fit: contain;
+  }
+  .main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    text-decoration: none;
+    color: var(--white);
+    transition: color 0.2s;
+  }
+  .main-nav a:hover {
+    color: var(--gold);
+  }
+  .main-nav a.active {
+    color: var(--gold);
+  }
+  
+  /* ===== HERO SECTION ===== */
+  .hero {
+    position: relative;
+    height: 60vh;
+    background: var(--purple) url("images/placeholder-hero.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-overlay {
+    background-color: rgba(0,0,0,0.5);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+  }
+  .hero-overlay h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .cta-button {
+    background-color: var(--gold);
+    color: var(--black);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  .cta-button:hover {
+    background-color: #d4b171;
+    transform: scale(1.05);
+  }
+  
+  /* ===== MISSION SECTION ===== */
+  .mission {
+    padding: 2rem;
+    background-color: var(--gray-dark);
+    text-align: center;
+  }
+  .mission h2 {
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  
+  /* ===== VISION SECTION ===== */
+  .vision {
+    padding: 2rem;
+    background-color: var(--black);
+    text-align: center;
+  }
+  .vision-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  .vision-text {
+    flex: 1;
+    min-width: 280px;
+  }
+  .vision-image {
+    flex: 1;
+    min-width: 280px;
+  }
+  .vision-image img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  .vision h2 {
+    color: var(--purple);
+  }
+  
+  /* ===== HIGHLIGHTS SECTION ===== */
+  .highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    justify-content: center;
+    background-color: var(--gray-dark);
+  }
+  .highlight-box {
+    background-color: var(--black);
+    flex: 0 1 300px;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .highlight-box h3 {
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  
+  /* ===== TEAM SECTION ===== */
+  .team-section {
+    padding: 2rem;
+    background-color: var(--black);
+    text-align: center;
+  }
+  .team-section h2 {
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  .team-member {
+    background-color: var(--gray-dark);
+    padding: 1rem;
+    flex: 0 1 200px;
+    border-radius: 8px;
+  }
+  .team-member img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* ===== CONTACT SECTION ===== */
+  .contact-section {
+    padding: 2rem;
+    background-color: var(--gray-dark);
+    text-align: center;
+  }
+  .contact-section h2 {
+    color: var(--purple);
+    margin-bottom: 1rem;
+  }
+  
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background-color: var(--gray-dark);
+    text-align: center;
+    padding: 1rem;
+    color: var(--white);
+  }
+  
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .hero {
+      height: 40vh;
+    }
+    .hero-overlay h1 {
+      font-size: 1.5rem;
+    }
+    .vision-content {
+      flex-direction: column;
+    }
+    .highlights {
+      flex-direction: column;
+    }
+    .team-grid {
+      flex-direction: column;
+    }
+  }
+  
