@@ -1,213 +1,408 @@
-/* ===== BASE & VARIABLES ===== */
+/* ===============================
+   BASE & VARIABLES
+   =============================== */
 :root {
-    --gold: #C9A255;
-    --purple: #7A3FB6;
-    --black: #000;
-    --white: #fff;
-    --gray-dark: #1a1a1a;
+  --gold: #C9A255;
+  --purple: #7A3FB6;
+  --black: #000;
+  --white: #fff;
+  --gray-dark: #1a1a1a;
+}
+
+/* Reset & Global Defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 
+     Base font: 100% typically equals the browser default of ~16px.
+     By using % for font-size, everything else can scale accordingly.
+  */
+body {
+  font-size: 100%;
+  font-weight: 600;
+  /* Slightly bolder for all text*/
+  font-family: "Poppins", sans-serif;
+  background-color: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+  /* Keep line-height unitless or numeric for flexibility */
+}
+
+/* ===============================
+     HEADER
+     =============================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  background-color: var(--gray-dark);
+  padding: 1% 2%;
+}
+
+/* Logo sizing */
+.logo-img {
+  width: 6%;
+  min-width: 80px;
+  object-fit: contain;
+}
+
+/* Push nav to the right */
+.main-nav {
+  margin-left: 65%;
+}
+
+/* Horizontal list of links */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 4%;
+  margin:0;
+  padding: 0;
+}
+
+/* Nav links themselves */
+.main-nav a {
+  text-decoration: none;
+  color: var(--white);
+  font-size: 170%;
+  font-weight: 600;
+  padding: 0.5% 1%;
+  display: inline-block;
+  transition: color 0.2s;
+}
+
+.main-nav a:hover {
+  color: var(--gold);
+}
+
+.main-nav a.active {
+  color: var(--gold);
+}
+
+
+/* ===============================
+     HERO SECTION
+     =============================== */
+.hero {
+  /* Flexible height with gradient background */
+  min-height: 70vh;
+  background: linear-gradient(45deg, var(--purple), var(--gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* logo in hero, scaled by % of container */
+.hero-overlay img {
+  width: 35%;
+  min-width: 120px;
+  margin-bottom: -7%;
+  margin-top: -6%
+}
+
+/* General Text Styling */
+.hero-overlay {
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero-overlay p {
+  font-size: 2rem;
+  line-height: 1.4;
+  color: var(--white); 
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.721);
+}
+
+/* Specific Elements */
+.intro-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--white); 
+  margin-left: -18%;
+}
+
+.key-roles {
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif; 
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-top: 1rem;
+}
+
+.key-roles .highlight {
+  font-style: italic;
+  color: var(--gold);
+  text-shadow: 5px 5px 5px rgb(0, 0, 0);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effect */
+.key-roles .highlight:hover {
+  transform: scale(1.1);
+  text-shadow: 
+    0 0 5px #0ff,    /* Inner glow */
+    0 0 10px #0ff,   /* Outer glow */
+    0 0 20px #0ff,   /* Outer outer glow */
+    0 0 40px #0ff,   /* Even farther glow */
+    0 0 80px #0ff;   /* Maximum spread glow */
+  font-weight: bold;
+  color: rgb(255, 255, 255); /* Adds a subtle hover color shift */
+}
+
+.mission-statement {
+  font-size: 2rem;
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+.mission-statement .emphasis {
+  font-weight: bold;
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+.tagline {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+.tagline .glow {
+  font-weight: bold;
+  color: var(--purple);
+  text-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold);
+  animation: glow-effect 1.5s infinite alternate;
+}
+
+/* Glowing Animation */
+@keyframes glow-effect {
+  from {
+    text-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold);
   }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  to {
+    text-shadow: 0 0 15px var(--gold), 0 0 25px var(--gold);
   }
-  
-  body {
-    font-family: "Arial", sans-serif;
-    background-color: var(--black);
-    color: var(--white);
-    line-height: 1.6;
-  }
-  
-  /* ===== HEADER ===== */
-  .site-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--gray-dark);
-    padding: 1rem 2rem;
-  }
-  .logo-img {
-    width: 150px; /* Adjust as needed */
-    object-fit: contain;
-  }
-  .main-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-  }
-  .main-nav a {
-    text-decoration: none;
-    color: var(--white);
-    transition: color 0.2s;
-  }
-  .main-nav a:hover {
-    color: var(--gold);
-  }
-  .main-nav a.active {
-    color: var(--gold);
-  }
-  
-  /* ===== HERO SECTION ===== */
+}
+
+
+/* CTA button with percentage-based padding */
+.cta-button {
+  background-color: var(--gold);
+  color: var(--black);
+  padding: 2% 5%;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+  margin-bottom: 3%;
+  font-size: 100%;
+}
+
+.cta-button:hover {
+  background-color: #d4b171;
+  transform: scale(1.05);
+}
+
+/* ===============================
+     MISSION SECTION
+     =============================== */
+.mission {
+  /* Using percentages for padding */
+  padding: 5%;
+  background-color: var(--gray-dark);
+  text-align: center;
+}
+
+.mission h2 {
+  color: var(--gold);
+  margin-bottom: 2%;
+  font-size: 150%;
+  /* ~1.5x base */
+}
+
+/* ===============================
+     VISION SECTION
+     =============================== */
+.vision {
+  padding: 5%;
+  background-color: var(--black);
+  text-align: center;
+}
+
+.vision h2 {
+  color: var(--purple);
+  font-size: 150%;
+  margin-bottom: 3%;
+}
+
+.vision-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  margin-top: 3%;
+}
+
+.vision-text {
+  flex: 1;
+  min-width: 200px;
+  font-size: 100%;
+}
+
+.vision-image {
+  flex: 1;
+  min-width: 200px;
+}
+
+.vision-image img {
+  width: 80%;
+  border-radius: 2%;
+}
+
+/* ===============================
+     HIGHLIGHTS SECTION
+     =============================== */
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3%;
+  padding: 5%;
+  justify-content: center;
+  background-color: var(--gray-dark);
+}
+
+.highlight-box {
+  background-color: var(--black);
+  flex: 0 1 30%;
+  padding: 5%;
+  border-radius: 2%;
+  text-align: center;
+}
+
+.highlight-box h3 {
+  color: var(--gold);
+  margin-bottom: 3%;
+  font-size: 120%;
+}
+
+/* ===============================
+     TEAM SECTION
+     =============================== */
+.team-section {
+  padding: 5%;
+  background-color: var(--black);
+  text-align: center;
+}
+
+.team-section h2 {
+  color: var(--gold);
+  margin-bottom: 3%;
+  font-size: 150%;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3%;
+  justify-content: center;
+  margin-top: 3%;
+}
+
+.team-member {
+  background-color: var(--gray-dark);
+  padding: 5%;
+  flex: 0 1 20%;
+  border-radius: 2%;
+}
+
+.team-member img {
+  width: 100%;
+  border-radius: 2%;
+  margin-bottom: 5%;
+}
+
+.team-member h4 {
+  font-size: 120%;
+}
+
+/* ===============================
+     CONTACT SECTION
+     =============================== */
+.contact-section {
+  padding: 5%;
+  background-color: var(--gray-dark);
+  text-align: center;
+}
+
+.contact-section h2 {
+  color: var(--purple);
+  margin-bottom: 3%;
+  font-size: 150%;
+}
+
+/* ===============================
+     FOOTER
+     =============================== */
+.site-footer {
+  background-color: var(--gray-dark);
+  text-align: center;
+  padding: 3%;
+  color: var(--white);
+  font-size: 90%;
+}
+
+/* ===============================
+     RESPONSIVE BREAKPOINT
+     =============================== */
+@media (max-width: 768px) {
+
+  /* Possibly reduce hero size on smaller screens */
   .hero {
-    position: relative;
-    height: 60vh;
-    background: var(--purple) url("images/placeholder-hero.jpg") center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    min-height: 50vh;
   }
+
+  /* Stack the header contents vertically */
+  .site-header {
+    flex-direction: column;
+    gap: 2%;
+  }
+
+  /* Adjust nav spacing */
+  .main-nav ul {
+    flex-direction: column;
+    gap: 5%;
+  }
+
+  /* In narrower viewports, let .hero-overlay be almost full-width */
   .hero-overlay {
-    background-color: rgba(0,0,0,0.5);
-    padding: 2rem;
-    text-align: center;
-    border-radius: 8px;
+    width: 90%;
+    padding: 6% 4%;
   }
-  .hero-overlay h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  .cta-button {
-    background-color: var(--gold);
-    color: var(--black);
-    padding: 0.75rem 1.5rem;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
-  }
-  .cta-button:hover {
-    background-color: #d4b171;
-    transform: scale(1.05);
-  }
-  
-  /* ===== MISSION SECTION ===== */
-  .mission {
-    padding: 2rem;
-    background-color: var(--gray-dark);
-    text-align: center;
-  }
-  .mission h2 {
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
-  
-  /* ===== VISION SECTION ===== */
-  .vision {
-    padding: 2rem;
-    background-color: var(--black);
-    text-align: center;
-  }
+
+  /* Stack .vision-content vertically */
   .vision-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 1rem;
+    flex-direction: column;
   }
-  .vision-text {
-    flex: 1;
-    min-width: 280px;
-  }
-  .vision-image {
-    flex: 1;
-    min-width: 280px;
-  }
-  .vision-image img {
-    max-width: 100%;
-    border-radius: 8px;
-  }
-  .vision h2 {
-    color: var(--purple);
-  }
-  
-  /* ===== HIGHLIGHTS SECTION ===== */
+
+  /* Stack .highlights items vertically */
   .highlights {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    padding: 2rem;
-    justify-content: center;
-    background-color: var(--gray-dark);
+    flex-direction: column;
   }
-  .highlight-box {
-    background-color: var(--black);
-    flex: 0 1 300px;
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
-  }
-  .highlight-box h3 {
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-  }
-  
-  /* ===== TEAM SECTION ===== */
-  .team-section {
-    padding: 2rem;
-    background-color: var(--black);
-    text-align: center;
-  }
-  .team-section h2 {
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
+
+  /* Stack team members in a column */
   .team-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-    margin-top: 1rem;
+    flex-direction: column;
+    align-items: center;
   }
+
   .team-member {
-    background-color: var(--gray-dark);
-    padding: 1rem;
-    flex: 0 1 200px;
-    border-radius: 8px;
+    flex: 0 1 80%;
   }
-  .team-member img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 0.5rem;
-  }
-  
-  /* ===== CONTACT SECTION ===== */
-  .contact-section {
-    padding: 2rem;
-    background-color: var(--gray-dark);
-    text-align: center;
-  }
-  .contact-section h2 {
-    color: var(--purple);
-    margin-bottom: 1rem;
-  }
-  
-  /* ===== FOOTER ===== */
-  .site-footer {
-    background-color: var(--gray-dark);
-    text-align: center;
-    padding: 1rem;
-    color: var(--white);
-  }
-  
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 768px) {
-    .hero {
-      height: 40vh;
-    }
-    .hero-overlay h1 {
-      font-size: 1.5rem;
-    }
-    .vision-content {
-      flex-direction: column;
-    }
-    .highlights {
-      flex-direction: column;
-    }
-    .team-grid {
-      flex-direction: column;
-    }
-  }
-  
+}
