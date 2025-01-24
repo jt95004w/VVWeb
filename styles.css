@@ -89,35 +89,74 @@ body {
      HERO SECTION
      =============================== */
 .hero {
-  /* Flexible height with gradient background */
-  min-height: 70vh;
+  position: relative;
+  min-height: 50vh; /* Ensure height stays proportional */
+  display: flex; /* Use flexbox to align items */
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: flex-start; /* Align to the top */
   background: linear-gradient(45deg, var(--purple), var(--gold));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  background-size: cover;
+  background-blend-mode: overlay;
+  overflow: hidden; /* Prevent content overflow */
+  padding: 0; /* Remove unnecessary padding */
 }
 
-/* logo in hero, scaled by % of container */
-.hero-overlay img {
-  width: 35%;
-  min-width: 120px;
-  margin-bottom: -7%;
-  margin-top: -6%
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('images/Textures/1.png') repeat; /* Add texture */
+  opacity: 0.1; /* Reduce opacity for subtle effect */
+  z-index: 0; /* Ensure this is behind everything */
 }
 
-/* General Text Styling */
 .hero-overlay {
-  padding: 2rem;
   text-align: center;
+  margin-top: -1rem; /* Reduce spacing above text */
 }
 
 .hero-overlay p {
   font-size: 2rem;
-  line-height: 1.4;
+  line-height: 1.5;
   color: var(--white); 
   text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.721);
 }
+
+/* begining of logo and images in hero*/
+.parallax-image {
+  width: 30%; /* Proportional size */
+  margin-top: -6rem; /* Remove margins */
+  margin-bottom: 2rem;
+  z-index: 5; /* Ensure above background */
+  position: relative;
+}
+
+.hero-images {
+  display: flex;
+  justify-content: space-between; /* Distribute images to sides */
+  width: 100%; /* Full width of the Hero section */
+  max-width: 1200px; /* Optional: Limit width for better alignment */
+  margin-top: -8rem; /* Reduce spacing above */
+  margin-bottom: -7rem; /* Reduce spacing below */
+  z-index: 4; /* Ensure they’re above the background */
+}
+
+.parallax-left {
+  width: 15%; /* Adjust size proportionally */
+  transform: translateY(0); /* Parallax effect will apply here */
+  margin-left: -10%;
+}
+
+.parallax-right {
+  width: 15%; /* Adjust size proportionally */
+  transform: translateY(0); /* Parallax effect will apply here */
+  margin-right: -10%;
+}
+/* End of logo and image area */
 
 /* Specific Elements */
 .intro-text {
@@ -128,33 +167,88 @@ body {
   margin-left: -18%;
 }
 
-.key-roles {
-  font-size: 3rem;
-  font-family: "Poppins", sans-serif; 
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  margin-top: 1rem;
-}
-
+/*
 .key-roles .highlight {
   font-style: italic;
   color: var(--gold);
   text-shadow: 5px 5px 5px rgb(0, 0, 0);
   transition: transform 0.3s ease, color 0.3s ease;
 }
+*/
 
 /* Hover Effect */
+
+/*
 .key-roles .highlight:hover {
   transform: scale(1.1);
   text-shadow: 
-    0 0 5px #0ff,    /* Inner glow */
-    0 0 10px #0ff,   /* Outer glow */
-    0 0 20px #0ff,   /* Outer outer glow */
-    0 0 40px #0ff,   /* Even farther glow */
-    0 0 80px #0ff;   /* Maximum spread glow */
+    0 0 5px #0ff,    /*Inner glow 
+    0 0 10px #0ff,   /* Outer glow 
+    0 0 20px #0ff,   /* Outer outer glow 
+    0 0 40px #0ff,   /* Even farther glow 
+    0 0 80px #0ff;   /* Maximum spread glow 
+  font-weight: bold;
+  color: rgb(255, 255, 255); /* Adds a subtle hover color shift 
+}
+*/
+
+/* beginning of initial word sliding effect */
+.key-roles {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--gold);
+  position: relative;
+  padding: 1rem 0; /* Add vertical padding */
+  height: calc(5.5rem + 1rem); /* Account for the added padding */  
+  line-height: 6rem; 
+  overflow: hidden; /* Ensures no words overflow */
+}
+
+.dynamic-words {
+  position: relative;
+  height: 3.5rem; /* Match the font size */
+  display: block;
+}
+
+.dynamic-words span {
+  display: block;
+  position: absolute;
+  top: 0; /* Start position */
+  left: 0;
+  width: 100%;
+  font-size: 3.5rem; /* Set explicit size */
+  transform: translateY(100%); /* Start below the container */
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.dynamic-words span.active {
+  transform: translateY(0); /* Bring into view */
+  opacity: 1;
+}
+
+.dynamic-words span.inactive {
+  transform: translateY(-100%); /* Slide out above the container */
+  opacity: 0;
+}
+
+.dynamic-words span.active:last-of-type {
+  animation: scale-up 1s ease forwards;
+  text-shadow: 
+    0 0 5px #f6b534,    /*Inner glow */
+    0 0 9px #f8c96a;   /* Maximum spread glow */
   font-weight: bold;
   color: rgb(255, 255, 255); /* Adds a subtle hover color shift */
 }
+
+@keyframes scale-up {
+  0% { transform: scale(1); }
+  100% { transform: scale(2); }
+}
+
+/*end of initial word sliding effect */
 
 .mission-statement {
   font-size: 2rem;
@@ -163,14 +257,18 @@ body {
 }
 
 .mission-statement .emphasis {
-  font-weight: bold;
-  color: var(--gold);
   text-decoration: underline;
+  font-weight: bold;
+  text-shadow: 
+    4px 4px 8px #00000049,
+    4px 4px 8px #8343c3e1;
+  font-size: 2.3rem;
 }
 
 .tagline {
   font-size: 2rem;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .tagline .glow {
