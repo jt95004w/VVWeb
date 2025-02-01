@@ -18,10 +18,9 @@
     <nav class="main-nav">
       <ul>
         <li><a href="#" class="active">Home</a></li>
-        <li><a href="#mission">Mission</a></li>
-        <li><a href="#vision">Vision</a></li>
+        <li><a href="#mission-statement">Mission</a></li>
         <li><a href="#team">Team</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">Join</a></li>
       </ul>
     </nav>
   </header> 
@@ -54,7 +53,7 @@
           <span>CREATIVES</span>
         </span>
       </p>
-      <p class="mission-statement">
+      <p class="hero-statement">
         working to facilitate real art, 
         <span class="emphasis">nothing less.</span>
       </p>
@@ -63,43 +62,72 @@
   </section>
 
   <!-- MISSION SECTION -->
-  <section id="mission" class="mission">
-    <h2>The Mission Statement</h2>
-    <p>
-      We aim to empower creative minds through collaboration, mentorship, and 
-      industry opportunities—pushing boundaries and shaping a vibrant future.
-    </p>
-  </section>
-
-  <!-- VISION SECTION -->
-  <section id="vision" class="vision">
-    <h2>Our Vision & Values</h2>
-    <div class="vision-content">
-      <div class="vision-text">
-        <p>We envision a community where innovative projects come to life 
-          through synergy between independent creators, technology, and art.</p>
-        <p>By offering resources, networking, and support, we help each other 
-          achieve excellence in music, visual arts, and beyond.</p>
+  <section id="mission-statement" class="mission-statement">
+    <h2 class="section-title">Our Mission</h2>
+    <div class="mission-cards">
+      <div class="mission-card" data-title="Quality">
+        <p class="mission-text">
+          We are committed to creating art that resonates on a profound level. From the first note to the final mix, we prioritize authenticity, innovation, and craftsmanship. We believe that great art transcends fleeting trends—it inspires, challenges, and endures, leaving a lasting impact.
+        </p>
       </div>
-      <!-- Placeholder for an illustrative image or graphic -->
-      <div class="vision-image">
-        <img src="images/placeholder-vision.jpg" alt="Vision Placeholder" />
+      <div class="mission-card" data-title="Community">
+        <p class="mission-text">
+          Our mission is about more than music; it’s about people. We strive to amplify underrepresented voices and build platforms where creativity drives real change. Through supporting local initiatives and mentoring emerging talent, we use art as a tool to empower individuals and strengthen communities.
+        </p>
+      </div>
+      <div class="mission-card" data-title="Independence">
+        <p class="mission-text">
+          We stand for artists retaining full creative control and receiving a fair share of their work’s success. In a landscape where growth often comes at the cost of independence, this collective exists to challenge that model—ensuring that artists thrive without compromise.
+        </p>
       </div>
     </div>
-  </section>
+  </section>  
+  <!-- END OF MISSION SECTION -->
 
-  <!-- HIGHLIGHTS (Engineers, Videographers, etc.) -->
-  <section class="highlights">
-    <div class="highlight-box">
-      <h3>Independent Engineers</h3>
-      <p>Placeholder text about how we support and involve audio/tech engineers.</p>
+  <section class="members-section">
+  <!-- Category Tabs -->
+  <div class="category-tabs">
+    <span class="tab active" data-category="artists">Artists</span>
+    <span class="tab" data-category="engineers">Engineers</span>
+    <span class="tab" data-category="videographers">Videographers</span>
+    <span class="tab" data-category="photographers">Photographers</span>
+    <span class="tab" data-category="editors">Editors</span>
+  </div>
+
+  <!-- Member Carousel -->
+  <div class="carousel">
+    <button class="arrow left-arrow">&lt;</button> <!-- Left Arrow -->
+    <div class="carousel-inner">
+      <!-- Individual Member Cards -->
+      <div class="member-card active" data-category="artists">
+        <img src="images/members/artist1.jpg" alt="Artist Name" class="member-image" />
+        <h3 class="member-name">Artist Name</h3>
+        <div class="member-details">
+          <p class="member-bio">Brief artist description here.</p>
+          <div class="social-links">
+            <a href="#" class="spotify">🎵</a>
+            <a href="#" class="apple-music">🍏</a>
+            <a href="#" class="instagram">📸</a>
+          </div>
+        </div>
+      </div>
+      <div class="member-card" data-category="engineers">
+        <img src="images/members/engineer1.jpg" alt="Engineer Name" class="member-image" />
+        <h3 class="member-name">Engineer Name</h3>
+        <div class="member-details">
+          <p class="member-bio">Brief engineer description here.</p>
+          <div class="social-links">
+            <a href="#" class="linkedin">🔗</a>
+            <a href="#" class="twitter">🐦</a>
+          </div>
+        </div>
+      </div>
+      <!-- More members... -->
     </div>
-    <div class="highlight-box">
-      <h3>Videographers</h3>
-      <p>Placeholder text about videography, visual content, and creative storytelling.</p>
-    </div>
-    <!-- Add more highlight-boxes if needed -->
-  </section>
+    <button class="arrow right-arrow">&gt;</button> <!-- Right Arrow -->
+  </div>
+</section>
+
 
   <!-- TEAM / COLLABORATORS SECTION -->
   <section id="team" class="team-section">
