@@ -70,6 +70,45 @@ document.addEventListener("scroll", () => {
   rightImage.style.transform = `translateY(${depthRight}px) translateZ(0)`;
 });
 
+/* ===============================
+     OBSERVE ON SCROLL
+     =============================== */
 
+// Show div when user scrolls to 50% of the div
+function divActive(e) {
 
+  // Collect all divs with 'slide-in' class
+  const divs = document.querySelectorAll('.slide-in');
 
+  // For each div...
+  divs.forEach(div => {
+
+    // Calculate current height user is at on div
+    const slideInAt = (window.scrollY + window.innerHeight) - div.offsetHeight / 2;
+    // Add active class to div if threshold of 50% of height has been crossed
+    if (slideInAt > div.offsetTop) div.classList.add('active');
+    else div.classList.remove('active');
+
+  })
+
+}
+
+// delays scroll affects (copied from stack overflow)
+function debounce(func, wait = 10, immediate = true) {
+  var timeout;
+  return function() {
+    var context = this,
+      args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+
+// Adding event listener for scroll to call debounce
+window.addEventListener('scroll', debounce(divActive));

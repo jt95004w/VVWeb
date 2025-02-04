@@ -640,3 +640,18 @@ body {
     flex: 0 1 80%;
   }
 }
+
+/* ===============================
+     OBSERVE ON SCROLL
+     =============================== */
+
+.slide-in {
+  opacity: 10%;
+  transition: opacity 0.5s;
+}
+
+.slide-in.active {
+  transition: opacity 0.5s;
+  opacity: 100%;
+  visibility: visible !important;
+}
