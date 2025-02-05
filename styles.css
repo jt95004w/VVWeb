@@ -377,17 +377,12 @@ body {
 }
 
 .mission-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   opacity: 0;
   visibility: hidden;
   color: var(--black);
-  font-size: 1.2rem;
   line-height: 1.5;
   text-align: center; /* Center-align text */
-  width: 90%; /* Ensure the text spans most of the card width */
+  width: 100%; /* Ensure the text spans most of the card width */
   max-width: 100%; /* Prevent overflow */
   padding: 0 1rem; /* Add padding for better readability */
   box-sizing: border-box; /* Include padding in width calculations */
