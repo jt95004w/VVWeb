@@ -10,6 +10,8 @@ document.querySelectorAll('.main-nav a').forEach(link => {
     });
 });
 
+// Carousel stuff
+
 document.addEventListener("DOMContentLoaded", () => {
   const words = document.querySelectorAll(".dynamic-words span");
   let currentIndex = 0;
