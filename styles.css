@@ -167,31 +167,6 @@ body {
   margin-left: -18%;
 }
 
-/*
-.key-roles .highlight {
-  font-style: italic;
-  color: var(--gold);
-  text-shadow: 5px 5px 5px rgb(0, 0, 0);
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-*/
-
-/* Hover Effect */
-
-/*
-.key-roles .highlight:hover {
-  transform: scale(1.1);
-  text-shadow: 
-    0 0 5px #0ff,    /*Inner glow 
-    0 0 10px #0ff,   /* Outer glow 
-    0 0 20px #0ff,   /* Outer outer glow 
-    0 0 40px #0ff,   /* Even farther glow 
-    0 0 80px #0ff;   /* Maximum spread glow 
-  font-weight: bold;
-  color: rgb(255, 255, 255); /* Adds a subtle hover color shift 
-}
-*/
-
 /* beginning of initial word sliding effect */
 .key-roles {
   font-family: 'Poppins', sans-serif;
@@ -288,7 +263,32 @@ body {
     text-shadow: 0 0 15px var(--gold), 0 0 25px var(--gold);
   }
 }
-/* end of final hero statement sentence */
+/* ===============================
+     END OF HERO SECTION
+     =============================== */
+
+/* ===============================
+     WHY? SECTION
+     =============================== */
+
+.why-section {
+  background-color: var(--black);
+  color: var(--white);
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.why-text {
+  font-size: 1.6rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: var(--white);
+}
+
+/* ===============================
+     END OF WHY? SECTION
+     =============================== */
 
 /* ===============================
      MISSION SECTION
@@ -371,7 +371,6 @@ body {
   background-color: rgba(0, 0, 0, 0.6); /* Subtle background for contrast */
 }
 
-
 .mission-card:hover::before {
   opacity: 0; /* Fade out the title on hover */
 }
@@ -442,7 +441,7 @@ body {
   padding: 0.8rem 2rem;
   border-bottom: 3px solid transparent;
   transition: all 0.3s ease-in-out;
-  color: var(--gray-dark);
+  color: #b7b7b7;
 }
 
 .tab.active {
@@ -451,6 +450,27 @@ body {
   font-size: 1.8rem;
   text-shadow: 0px 0px 10px var(--gold);
 }
+
+/* Arrows */
+.arrow {
+  font-size: 3rem; /* Increase size */
+  color: var(--gold);
+  background: none; /* Remove background that could cause shifting */
+  border: 3px solid var(--gold); /* Add a clean, visible border */
+  border-radius: 50%; /* Keep the rounded shape */
+  width: 60px; /* Set explicit width */
+  height: 60px; /* Set explicit height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease-in-out, border-color 0.3s ease;
+}
+
+.arrow:hover {
+  transform: scale(1.05);
+  border-color: var(--white); /* Subtle color shift for hover effect */
+}
+
 
 /* Carousel */
 .carousel {
@@ -462,41 +482,45 @@ body {
   margin: 0 auto;
 }
 
-/* Arrows */
-.arrow {
-  font-size: 2.5rem;
-  color: var(--gold);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  transition: transform 0.2s ease-in-out;
-}
-
-.arrow:hover {
-  transform: scale(1.2);
-}
-
 /* Member Cards */
 .carousel-inner {
   display: flex;
   overflow: hidden;
   width: 100%;
+  position: relative; /* Ensures absolute positioning inside */
+  height: 350px; /* Adjust height to match card size */
 }
 
 .member-card {
-  min-width: 100%;
-  text-align: center;
-  padding: 1.5rem;
-  border-radius: 10px;
-  background: var(--gray-dark);
-  transition: transform 0.3s ease-in-out;
+  border-radius: 15px; /* Smooth, rounded edges */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  /* Remove or comment out the default transform so JS can set it */
+  /* transform: translateX(100%); */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  background: url('images/Profiles/Potential Profile Backing.png'),
+              linear-gradient(135deg, var(--purple), var(--gold));
+  background-size: cover, cover;
+  background-blend-mode: overlay;
 }
 
 .member-card.active {
-  transform: scale(1.05);
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 2;
 }
 
+
+.member-card.previous {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+/* Image Hover Effect */
 .member-image {
   width: 140px; /* Slightly larger */
   height: 140px;
@@ -554,59 +578,120 @@ body {
      =============================== */
 
 /* ===============================
-     TEAM SECTION
+     SOCIALS SECTION
      =============================== */
-.team-section {
-  padding: 5%;
+.socials-section {
   background-color: var(--black);
   text-align: center;
+  padding: 4rem 2rem;
 }
 
-.team-section h2 {
-  color: var(--gold);
-  margin-bottom: 3%;
-  font-size: 150%;
-}
-
-.team-grid {
+.social-links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 3%;
   justify-content: center;
-  margin-top: 3%;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
 }
 
-.team-member {
-  background-color: var(--gray-dark);
-  padding: 5%;
-  flex: 0 1 20%;
-  border-radius: 2%;
+.social-button {
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
 }
 
-.team-member img {
-  width: 100%;
-  border-radius: 2%;
-  margin-bottom: 5%;
+.social-button:hover {
+  background-color: var(--gold);
+  color: var(--black);
 }
-
-.team-member h4 {
-  font-size: 120%;
-}
+/* ===============================
+     END OF SOCIALS SECTION
+     =============================== */
 
 /* ===============================
      CONTACT SECTION
      =============================== */
 .contact-section {
-  padding: 5%;
-  background-color: var(--gray-dark);
+  background-color: var(--black);
+  color: var(--white);
   text-align: center;
+  padding: 4rem 2rem;
 }
 
-.contact-section h2 {
-  color: var(--purple);
-  margin-bottom: 3%;
-  font-size: 150%;
+.contact-intro {
+  font-size: 1.4rem;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  color: var(--white);
+  opacity: 0.8;
 }
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-group {
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--gold);
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  border: 2px solid var(--gold);
+  background: transparent;
+  color: var(--white);
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 8px var(--purple);
+}
+
+.cta-button {
+  background-color: var(--gold);
+  color: var(--black);
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+}
+
+.cta-button:hover {
+  background-color: var(--purple);
+  color: var(--white);
+  transform: scale(1.05);
+}
+
 
 /* ===============================
      FOOTER

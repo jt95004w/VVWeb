@@ -96,51 +96,107 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Hide all members first
     memberCards.forEach(card => {
-      card.classList.remove("active");
-      card.style.display = "none"; // Ensure they're hidden
+      card.classList.remove("active", "previous");
+      card.style.opacity = "0";
+      card.style.visibility = "hidden";
+      card.style.transform = "translateX(100%)"; // Move them off-screen
     });
 
     // Select members in the active category
     const members = document.querySelectorAll(`.member-card[data-category="${activeCategory}"]`);
 
-    // Make sure at least one member is shown
     if (members.length > 0) {
       members[activeIndex].classList.add("active");
-      members[activeIndex].style.display = "block";
+      members[activeIndex].style.opacity = "1";
+      members[activeIndex].style.visibility = "visible";
+      members[activeIndex].style.transform = "translateX(0)";
     }
   }
 
-  // Function to navigate members
   function navigate(direction) {
+    // Select cards for the current active category.
     const members = document.querySelectorAll(`.member-card[data-category="${activeCategory}"]`);
+    if (members.length === 0) return; // No cards to navigate
+  
+    // Find the current active card. (Fallback to 0 if none found.)
+    let currentIndex = Array.from(members).findIndex(member =>
+      member.classList.contains("active")
+    );
+    if (currentIndex === -1) currentIndex = 0;
+  
+    // Calculate nextIndex using modulo arithmetic
+    let nextIndex;
+    if (direction === "next") {
+      nextIndex = (currentIndex + 1) % members.length;
+    } else {
+      nextIndex = (currentIndex - 1 + members.length) % members.length;
+    }
 
-    if (members.length <= 1) return; // No need to navigate if only one member
-
-    // Remove active state from current member
-    members[activeIndex].classList.remove("active");
-    members[activeIndex].style.display = "none";
-
-    // Update index based on direction
-    activeIndex = (activeIndex + direction + members.length) % members.length;
-
-    // Show new member
-    members[activeIndex].classList.add("active");
-    members[activeIndex].style.display = "block";
+    // Update the global activeIndex to keep state in sync
+    activeIndex = nextIndex;
+  
+    const currentMember = members[currentIndex];
+    const nextMember = members[nextIndex];
+  
+    // Set transition properties (if not set in CSS)
+    currentMember.style.transition = "transform 0.6s ease, opacity 0.5s ease";
+    nextMember.style.transition = "transform 0.6s ease, opacity 0.5s ease";
+  
+    // Animate the outgoing card
+    if (direction === "next") {
+      // Always slide outgoing card to the left
+      currentMember.style.transform = "translateX(-100%)";
+    } else {
+      // Always slide outgoing card to the right
+      currentMember.style.transform = "translateX(100%)";
+    }
+    currentMember.style.opacity = "0";
+    currentMember.classList.remove("active");
+  
+    // Position the incoming card offscreen (opposite side)
+    if (direction === "next") {
+      nextMember.style.transform = "translateX(100%)";
+    } else {
+      nextMember.style.transform = "translateX(-100%)";
+    }
+    nextMember.style.opacity = "0";
+    
+    // **Set the incoming card to visible**
+    nextMember.style.visibility = "visible";
+  
+    // Force reflow so the browser picks up the starting position before animating in.
+    nextMember.getBoundingClientRect();
+  
+    // Use requestAnimationFrame to ensure the styles have applied
+    requestAnimationFrame(() => {
+      // Animate the incoming card into view
+      nextMember.classList.add("active");
+      nextMember.style.opacity = "1";
+      nextMember.style.transform = "translateX(0)";
+    });
+  
+    // Optional: after the transition completes, clear inline transform styles
+    currentMember.addEventListener("transitionend", function clearStyles(e) {
+      if (e.propertyName === "transform") {
+        currentMember.style.transform = "";
+        currentMember.removeEventListener("transitionend", clearStyles);
+      }
+    });
   }
+  
+  
 
   // Event Listeners
   tabs.forEach(tab => {
     tab.addEventListener("click", () => switchCategory(tab.dataset.category));
   });
 
-  leftArrow.addEventListener("click", () => navigate(-1));
-  rightArrow.addEventListener("click", () => navigate(1));
+  leftArrow.addEventListener("click", () => navigate("prev"));
+  rightArrow.addEventListener("click", () => navigate("next"));
 
   // Initialize members
   updateMembers();
 });
-
-
 
 /* ===============================
      OBSERVE ON SCROLL
