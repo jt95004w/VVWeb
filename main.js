@@ -72,25 +72,31 @@ document.addEventListener("scroll", () => {
   rightImage.style.transform = `translateY(${depthRight}px) translateZ(0)`;
 });
 
+
 //FUNCTIONS FOR MEMBERS SECTION 
 document.addEventListener("DOMContentLoaded", () => {
+
+  // Defining variables for "Meet the Collective" section
   const tabs = document.querySelectorAll(".tab");
   const memberCards = document.querySelectorAll(".member-card");
   const leftArrow = document.querySelector(".left-arrow");
   const rightArrow = document.querySelector(".right-arrow");
 
+  // Default should be artists and first artists displayed
   let activeCategory = "artists"; // Default category
-  let activeIndex = 0; // Default first member index
+  let activeIndex;
+  let prevIndex;
+  let nextIndex;
 
   // Function to switch categories
   function switchCategory(category) {
     activeCategory = category;
     activeIndex = 0; // Reset to first member when switching categories
-    updateMembers();
+    resetMembers();
   }
 
-  // Function to update visible members
-  function updateMembers() {
+  // Function to reset visible members
+  function resetMembers() {
     // Update tab styles
     tabs.forEach(tab => {
       tab.classList.toggle("active", tab.dataset.category === activeCategory);
@@ -100,93 +106,65 @@ document.addEventListener("DOMContentLoaded", () => {
     memberCards.forEach(card => {
       card.classList.remove("active", "previous");
       card.style.opacity = "0";
-      card.style.visibility = "hidden";
-      card.style.transform = "translateX(100%)"; // Move them off-screen
+      card.style.transform = "translateX(200%)";
     });
 
     // Select members in the active category
     const members = document.querySelectorAll(`.member-card[data-category="${activeCategory}"]`);
 
+    // Resetting active index to 0
+    activeIndex = 0; // Default first member index
+    prevIndex = (activeIndex - 1 + members.length) % members.length;
+    nextIndex = (activeIndex + 1) % members.length;
+
+    console.log(prevIndex);
+
     if (members.length > 0) {
       members[activeIndex].classList.add("active");
-      members[activeIndex].style.opacity = "1";
-      members[activeIndex].style.visibility = "visible";
-      members[activeIndex].style.transform = "translateX(0)";
+      members[prevIndex].classList.add("previous");
+      members[nextIndex].classList.add("next");
     }
+
   }
 
   function navigate(direction) {
+
     // Select cards for the current active category.
     const members = document.querySelectorAll(`.member-card[data-category="${activeCategory}"]`);
     if (members.length === 0) return; // No cards to navigate
-  
-    // Find the current active card. (Fallback to 0 if none found.)
-    let currentIndex = Array.from(members).findIndex(member =>
-      member.classList.contains("active")
-    );
-    if (currentIndex === -1) currentIndex = 0;
-  
-    // Calculate nextIndex using modulo arithmetic
-    let nextIndex;
+
+    // Remove current classes
+    if (prevIndex !== null) members[prevIndex].classList.remove("previous");
+    members[activeIndex].classList.remove("active");
+    if (nextIndex !== null) members[nextIndex].classList.remove("next");
+
     if (direction === "next") {
-      nextIndex = (currentIndex + 1) % members.length;
-    } else {
-      nextIndex = (currentIndex - 1 + members.length) % members.length;
+
+      let nextnextIndex = (nextIndex + 1) % members.length;
+
+      // Reassigning new trio
+      prevIndex = activeIndex;
+      activeIndex = nextIndex;
+      nextIndex = nextnextIndex;
+
+    }
+    else {
+
+      let prevprevIndex = (prevIndex - 1 + members.length) % members.length;
+
+      // Reassigning new trio
+      nextIndex = activeIndex;
+      activeIndex = prevIndex;
+      prevIndex = prevprevIndex;
+
     }
 
-    // Update the global activeIndex to keep state in sync
-    activeIndex = nextIndex;
-  
-    const currentMember = members[currentIndex];
-    const nextMember = members[nextIndex];
-  
-    // Set transition properties (if not set in CSS)
-    currentMember.style.transition = "transform 0.6s ease, opacity 0.5s ease";
-    nextMember.style.transition = "transform 0.6s ease, opacity 0.5s ease";
-  
-    // Animate the outgoing card
-    if (direction === "next") {
-      // Always slide outgoing card to the left
-      currentMember.style.transform = "translateX(-100%)";
-    } else {
-      // Always slide outgoing card to the right
-      currentMember.style.transform = "translateX(100%)";
-    }
-    currentMember.style.opacity = "0";
-    currentMember.classList.remove("active");
-  
-    // Position the incoming card offscreen (opposite side)
-    if (direction === "next") {
-      nextMember.style.transform = "translateX(100%)";
-    } else {
-      nextMember.style.transform = "translateX(-100%)";
-    }
-    nextMember.style.opacity = "0";
-    
-    // **Set the incoming card to visible**
-    nextMember.style.visibility = "visible";
-  
-    // Force reflow so the browser picks up the starting position before animating in.
-    nextMember.getBoundingClientRect();
-  
-    // Use requestAnimationFrame to ensure the styles have applied
-    requestAnimationFrame(() => {
-      // Animate the incoming card into view
-      nextMember.classList.add("active");
-      nextMember.style.opacity = "1";
-      nextMember.style.transform = "translateX(0)";
-    });
-  
-    // Optional: after the transition completes, clear inline transform styles
-    currentMember.addEventListener("transitionend", function clearStyles(e) {
-      if (e.propertyName === "transform") {
-        currentMember.style.transform = "";
-        currentMember.removeEventListener("transitionend", clearStyles);
-      }
-    });
+    // Add current classes
+    members[activeIndex].classList.add("active");
+    if (prevIndex !== null) members[prevIndex].classList.add("previous");
+    if (nextIndex !== null) members[nextIndex].classList.add("next");
+
   }
-  
-  
 
   // Event Listeners
   tabs.forEach(tab => {
@@ -197,7 +175,8 @@ document.addEventListener("DOMContentLoaded", () => {
   rightArrow.addEventListener("click", () => navigate("next"));
 
   // Initialize members
-  updateMembers();
+  resetMembers();
+  
 });
 
 /* ===============================
