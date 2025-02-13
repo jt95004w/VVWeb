@@ -508,18 +508,24 @@ body {
               linear-gradient(135deg, var(--purple), var(--gold));
   background-size: cover, cover;
   background-blend-mode: overlay;
+  transform: translateX(200%);
 }
 
 .member-card.active {
-  opacity: 1;
-  transform: translateX(0);
-  z-index: 2;
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+  /* z-index: 2; */
 }
 
 
 .member-card.previous {
-  transform: translateX(-100%);
-  opacity: 0;
+  transform: translateX(-100%) !important;
+  opacity: 0 !important;
+}
+
+.member-card.next {
+  transform: translateX(100%) !important;
+  opacity: 0 !important;
 }
 
 /* Image Hover Effect */
