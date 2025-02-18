@@ -19,8 +19,8 @@
       <ul>
         <li><a href="#" class="active">Home</a></li>
         <li><a href="#mission-statement">Mission</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#contact">Join</a></li>
+        <li><a href="#members">Team</a></li>
+        <li><a href="#tap-in">Join</a></li>
       </ul>
     </nav>
   </header> 
@@ -62,6 +62,7 @@
   </section>
 
   <!-- WHY? SECTION -->
+  <!--
   <section id="why" class="why-section">
     <h2 class="section-title">Why We Exist</h2>
     <p class="why-text">
@@ -69,6 +70,7 @@
       challenges, inspires, and connects. In a world of trends, we aim for timeless impact.
     </p>
   </section>
+  -->
   <!-- END OF WHY? SECTION -->
 
   <!-- MISSION SECTION -->
@@ -95,7 +97,7 @@
   <!-- END OF MISSION SECTION -->
 
   <!-- Member Carousel -->
-  <section class="members-section slide-in">
+  <section id="members" class="members-section slide-in">
     <h2 class="section-title">Meet the Collective</h2> <!-- New Title -->
   
     <!-- Category Tabs -->
@@ -296,63 +298,43 @@
   </section>
   <!-- END OF MEMBERS SECTION -->
 
+  <!-- CONTACT / CTA -->
+  <section id="tap-in" class="tap-in-section slide-in">
+    <!-- Initial Button -->
+    <button id="tapInButton" class="tap-in-btn">Tap In</button>
+
+    <!-- Expanding Form (Initially Hidden) -->
+    <div id="tapInForm" class="tap-in-form">
+      <form id="applicationForm" action="https://formspree.io/f/xldgoaaj" method="POST">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="description">Tell Us About Yourself:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+
+        <label for="file">Show Us Your Work:</label>
+        <input type="file" id="file" name="file">
+
+        <button type="submit" class="apply-btn">Apply</button>
+      </form>
+    </div>
+  </section>
+  <!-- END OF CONTACT / CTA -->
+  
   <!-- SOCIALS SECTION -->
   <section id="socials" class="socials-section slide-in">
-    <h2 class="section-title">Connect With Us</h2>
+    <h2 class="section-title">SEE US</h2>
     <div class="social-links">
-      <a href="https://instagram.com/YOURHANDLE" target="_blank" class="social-button instagram">Instagram</a>
-      <a href="https://tiktok.com/@YOURHANDLE" target="_blank" class="social-button tiktok">TikTok</a>
-      <a href="https://twitter.com/YOURHANDLE" target="_blank" class="social-button twitter">Twitter/X</a>
-      <a href="https://youtube.com/YOURHANDLE" target="_blank" class="social-button youtube">YouTube</a>
+      <a href="https://www.instagram.com/vvisioncollective/" class="instagram">
+        <img src="images\Socials\Instagram.png" alt="Instagram">
+      </a>
     </div>
   </section>
   <!-- END OF SOCIALS SECTION -->
 
-  <!-- CONTACT / CTA -->
-  <section id="contact" class="contact-section slide-in">
-    <h2 class="section-title">TAP IN</h2>
-    <p class="contact-intro">If you're passionate about what we do and want to contribute, let us know how you can be part of the vision.</p>
-  
-    <form action="submit_form.php" method="POST" class="contact-form">
-      <div class="input-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-  
-      <div class="input-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-  
-      <div class="input-group">
-        <label for="specialization">Specialization</label>
-        <select id="specialization" name="specialization" required>
-          <option value="" disabled selected>Select your craft</option>
-          <option value="artist">Artist</option>
-          <option value="producer">Producer</option>
-          <option value="engineer">Engineer</option>
-          <option value="videographer">Videographer</option>
-          <option value="photographer">Photographer</option>
-          <option value="graphic-designer">Graphic Designer</option>
-          <option value="editor">Editor</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-  
-      <div class="input-group">
-        <label for="message">Tell us about your craft</label>
-        <textarea id="message" name="message" rows="5" placeholder="What do you bring to the vision?" required></textarea>
-      </div>
-  
-      <button type="submit" class="cta-button">Submit</button>
-    </form>
-  </section>
-  <!-- END OF CONTACT / CTA -->
-  
-
   <!-- FOOTER -->
   <footer class="site-footer">
-    <p>© 2025 The Vivid Vision. All Rights Reserved.</p>
+    <p>© 2025 Vivid Vision Incorporated. All Rights Reserved.</p>
   </footer>
 
   <!-- SCRIPT -->

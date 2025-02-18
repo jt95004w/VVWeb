@@ -72,8 +72,9 @@ document.addEventListener("scroll", () => {
   rightImage.style.transform = `translateY(${depthRight}px) translateZ(0)`;
 });
 
-
-//FUNCTIONS FOR MEMBERS SECTION 
+/* ===============================
+     FUNCTIONS FOR MEMBERS SECTION
+     =============================== */
 document.addEventListener("DOMContentLoaded", () => {
 
   // Defining variables for "Meet the Collective" section
@@ -178,6 +179,117 @@ document.addEventListener("DOMContentLoaded", () => {
   resetMembers();
   
 });
+/* ===============================
+     END OF FUNCTIONS FOR MEMBERS SECTION
+     =============================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const tapInButton = document.getElementById("tapInButton");
+  const tapInForm = document.getElementById("tapInForm");
+  const applicationForm = document.getElementById("applicationForm");
+
+  // Expand form when button is clicked
+  tapInButton.addEventListener("click", () => {
+    tapInForm.style.display = "block"; // Ensure it becomes visible first
+    setTimeout(() => {
+      tapInForm.classList.add("active"); // Add class AFTER visibility change
+    }, 10); // Small delay allows animation to trigger
+    tapInButton.style.display = "none"; // Hide button
+  });
+  
+  // Handle form submission
+  applicationForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const description = document.getElementById("description").value;
+    const file = document.getElementById("file").files[0];
+
+    // Sending data via Email (Formspree example)
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("description", description);
+    if (file) {
+      formData.append("file", file);
+    }
+
+    fetch("https://formspree.io/f/xldgoaaj", {
+      method: "POST",
+      body: formData,
+      headers: { "Accept": "application/json" }
+    })
+    .then(response => response.json())
+    .then(data => {
+      alert("Application Submitted!"); // Confirmation message
+      applicationForm.reset(); // Clear form
+      tapInForm.classList.remove("active"); // Hide form after submission
+      tapInButton.style.display = "flex"; // Make it a flex container
+      tapInButton.style.justifyContent = "center"; // Center it horizontally
+      tapInButton.style.margin = "0 auto"; // Ensure it stays in the center
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      alert("Something went wrong. Try again.");
+    });
+  });
+});
+
+/* ===============================
+     TAP IN FUNCTION
+     =============================== */
+
+/* ===============================
+     TAP IN FUNCTION
+     =============================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const tapInButton = document.getElementById("tapInButton");
+  const tapInForm = document.getElementById("tapInForm");
+  const applicationForm = document.getElementById("applicationForm");
+
+  // Expand form when button is clicked
+  tapInButton.addEventListener("click", () => {
+    tapInForm.style.display = "block";
+    tapInButton.style.display = "none"; // Hide the button
+  });
+
+  // Handle form submission
+  applicationForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const description = document.getElementById("description").value;
+    const file = document.getElementById("file").files[0];
+
+    // Sending data via Email (Formspree example)
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("description", description);
+    if (file) {
+      formData.append("file", file);
+    }
+
+    fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      method: "POST",
+      body: formData,
+      headers: { "Accept": "application/json" }
+    })
+    .then(response => response.json())
+    .then(data => {
+      alert("Application Submitted!"); // Confirmation message
+      applicationForm.reset(); // Clear form
+      tapInForm.style.display = "none"; // Hide form after submission
+      tapInButton.style.display = "block"; // Show the button again
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      alert("Something went wrong. Try again.");
+    });
+  });
+});
+/* ===============================
+     END OF TAP IN FUNCTION
+     =============================== */
+
 
 /* ===============================
      OBSERVE ON SCROLL

@@ -42,6 +42,7 @@ body {
   align-items: center;
   background-color: var(--gray-dark);
   padding: 1% 2%;
+  margin-right: -1%;
 }
 
 /* Logo sizing */
@@ -581,125 +582,129 @@ body {
   filter: brightness(1.3); /* Slight glow effect */
 }
 
+.social-links a.Youtube img {
+  margin-top: 5px; /* Adjust as needed */
+}
+
 /* ===============================
      END OF MEMBERS/ARTIST SECTION
      =============================== */
 
 /* ===============================
-     SOCIALS SECTION
+     CONTACT SECTION
      =============================== */
+/* TAP IN SECTION */
+.tap-in-section {
+  text-align: center;
+  padding: 1rem 1rem; /* Increased padding for better spacing */
+  margin-bottom: -5%;
+}
+
+/* TAP IN BUTTON (No change, remains large & glowing) */
+.tap-in-btn {
+  font-size: 3.2rem; /* Slightly bigger */
+  padding: 2.5rem 5.5rem; /* Increased padding */
+  background-color: var(--gold);
+  color: var(--white);
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 0px 25px var(--gold);
+  animation: glowEffect 1.5s infinite alternate ease-in-out;
+}
+
+.tap-in-form {
+  max-height: 0; /* Initially collapsed */
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.tap-in-form.active {
+  max-height: 600px; /* Adjust height to fit content */
+  opacity: 1;
+  display: none; 
+  width: 60%;
+  max-width: 800px; 
+  margin: 3rem auto; 
+  padding: 3rem;
+  border-radius: 20px; 
+  background: url('images/Apply/ApplicationBoxPattern3.png') center/cover no-repeat;
+  position: relative;
+}
+
+
+/* Dark Overlay for Readability */
+.tap-in-form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Subtle dark overlay */
+  border-radius: 20px;
+  z-index: 1;
+}
+
+/* Ensure form content appears above the overlay */
+.tap-in-form * {
+  position: relative;
+  z-index: 2;
+}
+
+/* FORM INPUTS (Increased size for better usability) */
+.tap-in-form label {
+  font-size: 1.6rem; /* Slightly larger labels */
+  font-weight: bold;
+  color: var(--white);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.tap-in-form input,
+.tap-in-form textarea {
+  font-size: 1.4rem; /* Bigger text fields */
+  padding: 1rem;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+}
+
+/* APPLY BUTTON */
+.apply-btn {
+  font-size: 2.2rem; /* Bigger text */
+  padding: 1.2rem 3.5rem; /* Larger button */
+  margin-top: 1rem;
+  color: var(--white);
+  background-color: var(--gold);
+  font-weight: bold;
+  border-radius: 20px; /* More rounded edges */
+}
+
+/* ===============================
+     END OF CONTACT SECTION
+     =============================== */
+
+/* ===============================
+  SOCIALS SECTION
+=============================== */
+
 .socials-section {
   background-color: var(--black);
   text-align: center;
   padding: 4rem 2rem;
+  margin-top: 2%;
 }
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
-}
-
-.social-button {
-  padding: 1rem 2rem;
-  font-size: 1.4rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 2px solid var(--gold);
-  color: var(--gold);
-  border-radius: 8px;
-  transition: all 0.3s ease-in-out;
-}
-
-.social-button:hover {
-  background-color: var(--gold);
-  color: var(--black);
-}
+    
+/* The social media buttons here use the css from the MEMBERS/ARTIST Section. 
+    
 /* ===============================
-     END OF SOCIALS SECTION
-     =============================== */
-
-/* ===============================
-     CONTACT SECTION
-     =============================== */
-.contact-section {
-  background-color: var(--black);
-  color: var(--white);
-  text-align: center;
-  padding: 4rem 2rem;
-}
-
-.contact-intro {
-  font-size: 1.4rem;
-  max-width: 700px;
-  margin: 0 auto 2rem auto;
-  color: var(--white);
-  opacity: 0.8;
-}
-
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.input-group {
-  text-align: left;
-}
-
-.input-group label {
-  display: block;
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: var(--gold);
-}
-
-.input-group input,
-.input-group select,
-.input-group textarea {
-  width: 100%;
-  padding: 0.8rem;
-  font-size: 1.1rem;
-  border: 2px solid var(--gold);
-  background: transparent;
-  color: var(--white);
-  border-radius: 8px;
-  outline: none;
-  transition: all 0.3s ease-in-out;
-}
-
-.input-group input:focus,
-.input-group select:focus,
-.input-group textarea:focus {
-  border-color: var(--purple);
-  box-shadow: 0 0 8px var(--purple);
-}
-
-.cta-button {
-  background-color: var(--gold);
-  color: var(--black);
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  border-radius: 8px;
-}
-
-.cta-button:hover {
-  background-color: var(--purple);
-  color: var(--white);
-  transform: scale(1.05);
-}
-
+  END OF SOCIALS SECTION
+=============================== */
 
 /* ===============================
      FOOTER
