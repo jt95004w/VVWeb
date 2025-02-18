@@ -302,23 +302,23 @@
   <section id="tap-in" class="tap-in-section slide-in">
     <!-- Initial Button -->
     <button id="tapInButton" class="tap-in-btn">Tap In</button>
-
+  
     <!-- Expanding Form (Initially Hidden) -->
     <div id="tapInForm" class="tap-in-form">
-      <form id="applicationForm" action="https://formspree.io/f/xldgoaaj" method="POST">
-        <label for="email">Email:</label>
+      <form id="applicationForm" action="https://formspree.io/f/xldgoaaj" method="POST" enctype="multipart/form-data">
+        <label for="email">Your Email:</label>
         <input type="email" id="email" name="email" required>
-
-        <label for="description">Tell Us About Yourself:</label>
-        <textarea id="description" name="description" rows="4" required></textarea>
-
+      
+        <label for="message">Tell Us About Yourself:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+      
         <label for="file">Show Us Your Work:</label>
-        <input type="file" id="file" name="file">
-
+        <input type="file" id="file" name="upload">  <!-- FormSpree requires "upload" -->
+  
         <button type="submit" class="apply-btn">Apply</button>
       </form>
     </div>
-  </section>
+  </section>  
   <!-- END OF CONTACT / CTA -->
   
   <!-- SOCIALS SECTION -->

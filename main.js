@@ -246,6 +246,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const tapInForm = document.getElementById("tapInForm");
   const applicationForm = document.getElementById("applicationForm");
 
+  if (!tapInButton || !tapInForm || !applicationForm) {
+    console.error("One or more elements are missing. Check HTML IDs.");
+    return; // Stop execution if elements are missing
+  }
+
   // Expand form when button is clicked
   tapInButton.addEventListener("click", () => {
     tapInForm.style.display = "block";
@@ -254,31 +259,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Handle form submission
   applicationForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent default submission
 
-    const email = document.getElementById("email").value;
-    const description = document.getElementById("description").value;
-    const file = document.getElementById("file").files[0];
+    const emailField = document.getElementById("email");
+    const messageField = document.getElementById("message");
+    const fileField = document.getElementById("file");
 
-    // Sending data via Email (Formspree example)
-    const formData = new FormData();
-    formData.append("email", email);
-    formData.append("description", description);
-    if (file) {
-      formData.append("file", file);
+    if (!emailField || !messageField || !fileField) {
+      console.error("One or more form fields are missing.");
+      return;
     }
 
-    fetch("https://formspree.io/f/YOUR_FORM_ID", {
+    const formData = new FormData();
+    formData.append("email", emailField.value);
+    formData.append("message", messageField.value);
+
+    if (fileField.files.length > 0) {
+      formData.append("upload", fileField.files[0]); // Use "upload" per FormSpree docs
+    }
+
+    fetch("https://formspree.io/f/xldgoaaj", {
       method: "POST",
       body: formData,
       headers: { "Accept": "application/json" }
     })
     .then(response => response.json())
     .then(data => {
-      alert("Application Submitted!"); // Confirmation message
-      applicationForm.reset(); // Clear form
-      tapInForm.style.display = "none"; // Hide form after submission
-      tapInButton.style.display = "block"; // Show the button again
+      alert("Application Submitted! ✅");
+      applicationForm.reset();
+      tapInForm.style.display = "none";
+      tapInButton.style.display = "block";
     })
     .catch(error => {
       console.error("Error:", error);
@@ -286,6 +296,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
 /* ===============================
      END OF TAP IN FUNCTION
      =============================== */
