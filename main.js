@@ -190,28 +190,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Expand form when button is clicked
   tapInButton.addEventListener("click", () => {
-    tapInForm.style.display = "block"; // Ensure it becomes visible first
-    setTimeout(() => {
-      tapInForm.classList.add("active"); // Add class AFTER visibility change
-    }, 10); // Small delay allows animation to trigger
-    tapInButton.style.display = "none"; // Hide button
+    tapInForm.style.display = "block";
+    tapInButton.style.display = "none"; // Hide the button
   });
-  
+
   // Handle form submission
   applicationForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const email = document.getElementById("email").value;
-    const description = document.getElementById("description").value;
-    const file = document.getElementById("file").files[0];
+    const message = document.getElementById("description").value; // MATCHES Formspree's expected field name
 
-    // Sending data via Email (Formspree example)
+    if (!email || !message) {
+      console.error("One or more form fields are missing.");
+      alert("Please fill out all required fields.");
+      return;
+    }
+
+    // Sending data via Formspree
     const formData = new FormData();
     formData.append("email", email);
-    formData.append("description", description);
-    if (file) {
-      formData.append("file", file);
-    }
+    formData.append("message", message);
 
     fetch("https://formspree.io/f/xldgoaaj", {
       method: "POST",
@@ -222,21 +221,15 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
       alert("Application Submitted!"); // Confirmation message
       applicationForm.reset(); // Clear form
-      tapInForm.classList.remove("active"); // Hide form after submission
-      tapInButton.style.display = "flex"; // Make it a flex container
-      tapInButton.style.justifyContent = "center"; // Center it horizontally
-      tapInButton.style.margin = "0 auto"; // Ensure it stays in the center
+      tapInForm.style.display = "none"; // Hide form after submission
+      tapInButton.style.display = "block"; // Show the button again
     })
     .catch(error => {
-      console.error("Error:", error);
+      console.error("FormSpree error:", error);
       alert("Something went wrong. Try again.");
     });
   });
 });
-
-/* ===============================
-     TAP IN FUNCTION
-     =============================== */
 
 /* ===============================
      TAP IN FUNCTION
@@ -245,38 +238,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const tapInButton = document.getElementById("tapInButton");
   const tapInForm = document.getElementById("tapInForm");
   const applicationForm = document.getElementById("applicationForm");
+  const confirmationMessage = document.getElementById("confirmationMessage");
 
-  if (!tapInButton || !tapInForm || !applicationForm) {
+  if (!tapInButton || !tapInForm || !applicationForm || !confirmationMessage) {
     console.error("One or more elements are missing. Check HTML IDs.");
-    return; // Stop execution if elements are missing
+    return;
   }
 
   // Expand form when button is clicked
   tapInButton.addEventListener("click", () => {
     tapInForm.style.display = "block";
-    tapInButton.style.display = "none"; // Hide the button
+    setTimeout(() => {
+      tapInForm.classList.add("active");
+    }, 10);
+    tapInButton.style.visibility = "hidden"; // Keep its position
   });
 
   // Handle form submission
   applicationForm.addEventListener("submit", (e) => {
-    e.preventDefault(); // Prevent default submission
+    e.preventDefault();
 
     const emailField = document.getElementById("email");
     const messageField = document.getElementById("message");
-    const fileField = document.getElementById("file");
 
-    if (!emailField || !messageField || !fileField) {
-      console.error("One or more form fields are missing.");
+    if (!emailField.value || !messageField.value) {
+      alert("Please fill out all required fields.");
       return;
     }
 
     const formData = new FormData();
     formData.append("email", emailField.value);
     formData.append("message", messageField.value);
-
-    if (fileField.files.length > 0) {
-      formData.append("upload", fileField.files[0]); // Use "upload" per FormSpree docs
-    }
 
     fetch("https://formspree.io/f/xldgoaaj", {
       method: "POST",
@@ -285,10 +277,26 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(response => response.json())
     .then(data => {
-      alert("Application Submitted! ✅");
-      applicationForm.reset();
-      tapInForm.style.display = "none";
-      tapInButton.style.display = "block";
+      if (data.ok) {
+        tapInForm.style.display = "none";
+        confirmationMessage.style.display = "flex";
+        
+        setTimeout(() => {
+          confirmationMessage.style.opacity = "1";
+        }, 10);
+
+        setTimeout(() => {
+          confirmationMessage.style.opacity = "0";
+          setTimeout(() => {
+            confirmationMessage.style.display = "none";
+            confirmationMessage.style.height = "0"; // Remove space
+            tapInButton.style.visibility = "visible";
+          }, 400);
+        }, 2500);
+      } else {
+        console.error("FormSpree error:", data);
+        alert("Submission failed. Please try again.");
+      }
     })
     .catch(error => {
       console.error("Error:", error);
@@ -296,6 +304,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
 
 
 /* ===============================

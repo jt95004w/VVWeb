@@ -31,10 +31,12 @@
     <img src="images/VV-text.png" alt="Logo" class="parallax-image">
   
     <!-- Left and Right images -->
+    <!--
     <div class="hero-images">
       <img src="images/VV-icon.png" alt="Left Texture" class="parallax-left">
       <img src="images/VV-icon.png" alt="Right Texture" class="parallax-right">
     </div>
+    -->
   
     <!-- Hero text -->
     <div class="hero-overlay">
@@ -300,25 +302,30 @@
 
   <!-- CONTACT / CTA -->
   <section id="tap-in" class="tap-in-section slide-in">
-    <!-- Initial Button -->
+    <!-- Tap In Button -->
     <button id="tapInButton" class="tap-in-btn">Tap In</button>
   
-    <!-- Expanding Form (Initially Hidden) -->
+    <!-- Expanding Form -->
     <div id="tapInForm" class="tap-in-form">
-      <form id="applicationForm" action="https://formspree.io/f/xldgoaaj" method="POST" enctype="multipart/form-data">
+      <form id="applicationForm">
         <label for="email">Your Email:</label>
         <input type="email" id="email" name="email" required>
-      
+  
         <label for="message">Tell Us About Yourself:</label>
         <textarea id="message" name="message" rows="4" required></textarea>
-      
-        <label for="file">Show Us Your Work:</label>
-        <input type="file" id="file" name="upload">  <!-- FormSpree requires "upload" -->
-  
+        <label for="message">(Dropbox and Drive links accepted)</label>
         <button type="submit" class="apply-btn">Apply</button>
       </form>
     </div>
-  </section>  
+  
+    <!-- Custom Submission Confirmation Screen -->
+    <div id="confirmationMessage" class="confirmation-message">
+      <h2> Application Submitted</h2>
+      <p>We’ll be reaching out soon...</p>
+    </div>
+  </section>
+  
+
   <!-- END OF CONTACT / CTA -->
   
   <!-- SOCIALS SECTION -->
