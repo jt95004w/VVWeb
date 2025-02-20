@@ -1,101 +1,344 @@
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      {/* <!-- HEADER --> */}
+        <header className="site-header">
+          <img src="images/VV-icon whitegold.png" alt="Logo" className="logo-img" />
+          <nav className="main-nav">
+            <ul>
+              <li><a href="#" className="active">Home</a></li>
+              <li><a href="#mission-statement">Mission</a></li>
+              <li><a href="#members">Team</a></li>
+              <li><a href="#tap-in">Join</a></li>
+            </ul>
+          </nav>
+        </header> 
+
+        {/* <!-- HERO SECTION --> */}
+        <section className="hero">
+          {/* <!-- Center logo --> */}
+          <img src="images/VV-text.png" alt="Logo" className="parallax-image"/>
+        
+          {/* <!-- Left and Right images --> */}
+          {/* <!-- */}
+          <div className="hero-images">
+            <img src="images/VV-icon.png" alt="Left Texture" className="parallax-left"/>
+            <img src="images/VV-icon.png" alt="Right Texture" className="parallax-right"/>
+          </div>
+          {/* --> */}
+        
+          {/* <!-- Hero text --> */}
+          <div className="hero-overlay">
+            <p className="intro-text">A collective of:</p>
+            <p className="key-roles">
+              <span className="dynamic-words">
+                <span>ARTISTS</span>
+                <span>ENGINEERS</span>
+                <span>VIDEOGRAPHERS</span>
+                <span>MUSICIANS</span>
+                <span>DESIGNERS</span>
+                <span>PHOTOGRAPHERS</span>
+                <span>VISIONARIES</span>        
+                <span>HOBBYISTS</span>          
+                <span>DOPE HUMANS</span>          
+                <span>CREATIVES</span>
+              </span>
+            </p>
+            <p className="hero-statement">
+              working to facilitate real art, 
+              <span className="emphasis">nothing less.</span>
+            </p>
+            <p className="tagline">This is the <span className="glow">vision</span>.</p>
+          </div>
+        </section>
+
+        {/* <!-- WHY? SECTION --> */}
+        {/* <!-- */}
+        <section id="why" className="why-section">
+          <h2 className="section-title">Why We Exist</h2>
+          <p className="why-text">
+            The Vivid Vision is more than just a collective—it’s a movement. We believe in creating art that 
+            challenges, inspires, and connects. In a world of trends, we aim for timeless impact.
+          </p>
+        </section>
+        {/* --> */}
+        {/* <!-- END OF WHY? SECTION --> */}
+
+        {/* <!-- MISSION SECTION --> */}
+        <section id="mission-statement" className="mission-statement slide-in">
+          <h2 className="section-title">Our Mission</h2>
+          <div className="mission-cards">
+            <div className="mission-card" data-title="Quality">
+              <p className="mission-text">
+                We are committed to creating art that resonates on a profound level. From the first note to the final mix, we prioritize authenticity, innovation, and craftsmanship. We believe that great art transcends fleeting trends—it inspires, challenges, and endures, leaving a lasting impact.
+              </p>
+            </div>
+            <div className="mission-card" data-title="Community">
+              <p className="mission-text">
+                Our mission is about more than music; it’s about people. We strive to amplify underrepresented voices and build platforms where creativity drives real change. Through supporting local initiatives and mentoring emerging talent, we use art as a tool to empower individuals and strengthen communities.
+              </p>
+            </div>
+            <div className="mission-card" data-title="Independence">
+              <p className="mission-text">
+                We stand for artists retaining full creative control and receiving a fair share of their work’s success. In a landscape where growth often comes at the cost of independence, this collective exists to challenge that model—ensuring that artists thrive without compromise.
+              </p>
+            </div>
+          </div>
+        </section>  
+        {/* <!-- END OF MISSION SECTION --> */}
+
+        {/* <!-- Member Carousel --> */}
+        <section id="members" className="members-section slide-in">
+          <h2 className="section-title">Meet the Collective</h2> 
+          {/* <!-- New Title --> */}
+        
+          {/* <!-- Category Tabs --> */}
+          <div className="category-tabs">
+            <span className="tab active" data-category="artists">Artists</span>
+            <span className="tab" data-category="engineers">Engineers</span>
+            <span className="tab" data-category="videographers">Videographers</span>
+            <span className="tab" data-category="photographers">Photographers</span>
+            <span className="tab" data-category="editors">Editors</span>
+          </div>
+        
+          {/* <!-- Member Carousel --> */}
+          <div className="carousel">
+            <button className="arrow left-arrow">&lt;</button> 
+            {/* <!-- Left Arrow --> */}
+            <div className="carousel-inner">
+              {/* <!-- ARTISTS --> */}
+              <div className="member-card" data-category="artists">
+                <img src="images\Profiles\Potential Profile Backing.png" alt="GEØ" className="member-image" />
+                <h3 className="member-name">GEØ</h3>
+                <div className="member-details">
+                  <p className="member-bio">Brief artist description here.</p>
+                  <div className="social-links">
+                    <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
+                      <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
+                      <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
+                      <img src="images\Socials\Instagram.png" alt="Instagram"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            
+              <div className="member-card" data-category="artists">
+                <img src="images\Profiles\Potential Profile Backing.png" alt="Vrishabh" className="member-image" />
+                <h3 className="member-name">Vrishabh</h3>
+                <div className="member-details">
+                  <p className="member-bio">Brief artist description here.</p>
+                  <div className="social-links">
+                    <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
+                      <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
+                      <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
+                      <img src="images\Socials\Instagram.png" alt="Instagram"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            
+              <div className="member-card" data-category="artists">
+                <img src="images/members/artist1.jpg" alt="Hooper James" className="member-image" />
+                <h3 className="member-name">Hooper James</h3>
+                <div className="member-details">
+                  <p className="member-bio">Brief artist description here.</p>
+                  <div className="social-links">
+                    <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
+                      <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
+                      <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
+                      <img src="images\Socials\Instagram.png" alt="Instagram"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            
+              <div className="member-card" data-category="artists">
+                <img src="images/members/artist1.jpg" alt="AvThaKidd" className="member-image" />
+                <h3 className="member-name">AvThaKidd</h3>
+                <div className="member-details">
+                  <p className="member-bio">Brief artist description here.</p>
+                  <div className="social-links">
+                    <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
+                      <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
+                      <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
+                      <img src="images\Socials\Instagram.png" alt="Instagram"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* <!-- ENGINEERS --> */}
+              <div className="member-card" data-category="engineers">
+                <img src="images/members/artist1.jpg" alt="Griffin Louis LaFlam" className="member-image" />
+                <h3 className="member-name">Griffin Louis LaFlam</h3>
+                <div className="member-details">
+                  <p className="member-bio">Brief artist description here.</p>
+                  <div className="social-links">
+                    <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
+                      <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
+                      <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
+                      <img src="images\Socials\Instagram.png" alt="Instagram"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="member-card" data-category="engineers">
+                <img src="images/members/artist1.jpg" alt="EZRA" className="member-image" />
+                <h3 className="member-name">EZRA</h3>
+                <div className="member-details">
+                  <p className="member-bio">Brief artist description here.</p>
+                  <div className="social-links">
+                    <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
+                      <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
+                      <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
+                      <img src="images\Socials\Instagram.png" alt="Instagram"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* <!-- VIDEOGRAPHERS --> */}
+
+              <div className="member-card" data-category="videographers">
+                <img src="images/members/artist1.jpg" alt="AAA" className="member-image" />
+                <h3 className="member-name">ADAM ALEXANDER</h3>
+                <div className="member-details">
+                  <div className="social-links">
+                    <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
+                      <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
+                      <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
+                      <img src="images\Socials\Instagram.png" alt="Instagram"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* <!-- PHOTOGRAPHERS --> */}
+
+              <div className="member-card" data-category="photographers">
+                <img src="images/members/artist1.jpg" alt="SAMSUNG CAMERA" className="member-image" />
+                <h3 className="member-name">ADAM ALEXANDER</h3>
+                <div className="member-details">
+                  <p className="member-bio">Brief artist description here.</p>
+                  <div className="social-links">
+                    <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
+                      <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
+                      <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
+                      <img src="images\Socials\Instagram.png" alt="Instagram"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* <!-- EDITORS --> */}
+
+              <div className="member-card" data-category="editors">
+                <img src="images/members/artist1.jpg" alt="JAMBA TINO" className="member-image" />
+                <h3 className="member-name">JAMBA TINO</h3>
+                <div className="member-details">
+                  <p className="member-bio">Brief artist description here.</p>
+                  <div className="social-links">
+                    <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
+                      <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
+                      <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
+                    </a>
+                    <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
+                      <img src="images\Socials\Instagram.png" alt="Instagram"/>
+                    </a>
+                  </div>  
+                </div>
+              </div>
+
+
+            </div>          
+            <button className="arrow right-arrow">&gt;</button> 
+            {/* <!-- Right Arrow --> */}
+          </div>
+        </section>
+        {/* <!-- END OF MEMBERS SECTION --> */}
+
+        {/* <!-- CONTACT / CTA -->
+        <section id="tap-in" className="tap-in-section slide-in">
+          <!-- Tap In Button -->
+          <button id="tapInButton" className="tap-in-btn">Tap In</button>
+        
+          <!-- Expanding Form -->
+          <div id="tapInForm" className="tap-in-form">
+            <form id="applicationForm">
+              <label for="email">Your Email:</label>
+              <input type="email" id="email" name="email" required/>
+        
+              <label for="message">Tell Us About Yourself:</label>
+              <textarea id="message" name="message" rows={4} required></textarea>
+              <label for="message">(Dropbox and Drive links accepted)</label>
+              <button type="submit" className="apply-btn">Apply</button>
+            </form>
+          </div>
+        
+          <!-- Custom Submission Confirmation Screen -->
+          <div id="confirmationMessage" className="confirmation-message">
+            <h2> Application Submitted</h2>
+            <p>We’ll be reaching out soon...</p>
+          </div>
+        </section> */}
+        
+
+        {/* <!-- END OF CONTACT / CTA --> */}
+        
+        {/* <!-- SOCIALS SECTION --> */}
+        <section id="socials" className="socials-section slide-in">
+          <h2 className="section-title">SEE US</h2>
+          <div className="social-links">
+            <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
+              <img src="images\Socials\Instagram.png" alt="Instagram"/>
+            </a>
+          </div>
+        </section>
+        {/* <!-- END OF SOCIALS SECTION --> */}
+
+        {/* <!-- FOOTER --> */}
+        <footer className="site-footer">
+          <p>© 2025 Vivid Vision Incorporated. All Rights Reserved.</p>
+        </footer>
+
     </div>
   );
 }
