@@ -12,8 +12,7 @@ export default function Hero() {
                     src="/images/VV-icon whitegold.png" 
                     alt="Logo" 
                     width={80} 
-                    height={80} 
-                    className="logo-img"
+                    height={80}
                     style={{ width: "6%", height: "auto", minWidth: "80px" }}
                 />
                 <nav className="ml-[65%]">
@@ -43,20 +42,46 @@ export default function Hero() {
             </header> 
 
             {/* <!-- HERO SECTION --> */}
-            <section className="hero">
+            <section className={`relative min-h-[50vh] flex flex-col items-center 
+                                justify-start bg-gradient-to-r from-purple-500 to-yellow-500 
+                                bg-cover bg-blend-overlay overflow-hidden p-0`}>
                 {/* <!-- Center logo --> */}
-                <img src="images/VV-text.png" alt="Logo" className="parallax-image"/>
+                <Image 
+                    src="/images/VV-text.png" 
+                    alt="Logo" 
+                    width={80} 
+                    height={80} 
+                    className="relative mt-[-6] mb-[2 z-[5]"
+                    style={{ width: "30%", height: "auto" }}
+                />
             
                 {/* <!-- Left and Right images --> */}
                 {/* <!-- */}
-                <div className="hero-images">
-                    <img src="images/VV-icon.png" alt="Left Texture" className="parallax-left"/>
-                    <img src="images/VV-icon.png" alt="Right Texture" className="parallax-right"/>
+                <div className="flex justify-between w-full max-w-[1200px] -mt-[8rem] -mb-[7rem] z-40">
+
+                    <Image 
+                        src="/images/VV-icon.png" 
+                        alt="Left Texture" 
+                        width={80} 
+                        height={80} 
+                        className="w-[15%] transform translate-y-0 -ml-[10%]"
+                        style={{ width: "15%", height: "auto" }}
+                    />
+
+                    <Image 
+                        src="/images/VV-icon.png" 
+                        alt="Right Texture" 
+                        width={80} 
+                        height={80} 
+                        className="w-[15%] transform translate-y-0 -mr-[10%]"
+                        style={{ width: "15%", height: "auto" }}
+                    />  
+
                 </div>
                 {/* --> */}
             
                 {/* <!-- Hero text --> */}
-                <div className="hero-overlay">
+                <div className="items-center mt-[-1]">
                     <p className="intro-text">A collective of:</p>
                     <p className="key-roles">
                     <span className="dynamic-words">
