@@ -1,5 +1,6 @@
 // import Image from "next/image";
 import Hero from './hero/page';
+import Why from './why/page';
 
 export default function Home() {
   return (
@@ -7,17 +8,7 @@ export default function Home() {
 
         <Hero/>
 
-        {/* <!-- WHY? SECTION --> */}
-        {/* <!-- */}
-        <section id="why" className="why-section">
-          <h2 className="section-title">Why We Exist</h2>
-          <p className="why-text">
-            The Vivid Vision is more than just a collective—it’s a movement. We believe in creating art that 
-            challenges, inspires, and connects. In a world of trends, we aim for timeless impact.
-          </p>
-        </section>
-        {/* --> */}
-        {/* <!-- END OF WHY? SECTION --> */}
+        <Why/>
 
         {/* <!-- MISSION SECTION --> */}
         <section id="mission-statement" className="mission-statement slide-in">
