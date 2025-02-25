@@ -1,59 +1,11 @@
 // import Image from "next/image";
+import Hero from './hero/page';
 
 export default function Home() {
   return (
     <div>
 
-      {/* <!-- HEADER --> */}
-        <header className="site-header">
-          <img src="images/VV-icon whitegold.png" alt="Logo" className="logo-img" />
-          <nav className="main-nav">
-            <ul>
-              <li><a href="#" className="active">Home</a></li>
-              <li><a href="#mission-statement">Mission</a></li>
-              <li><a href="#members">Team</a></li>
-              <li><a href="#tap-in">Join</a></li>
-            </ul>
-          </nav>
-        </header> 
-
-        {/* <!-- HERO SECTION --> */}
-        <section className="hero">
-          {/* <!-- Center logo --> */}
-          <img src="images/VV-text.png" alt="Logo" className="parallax-image"/>
-        
-          {/* <!-- Left and Right images --> */}
-          {/* <!-- */}
-          <div className="hero-images">
-            <img src="images/VV-icon.png" alt="Left Texture" className="parallax-left"/>
-            <img src="images/VV-icon.png" alt="Right Texture" className="parallax-right"/>
-          </div>
-          {/* --> */}
-        
-          {/* <!-- Hero text --> */}
-          <div className="hero-overlay">
-            <p className="intro-text">A collective of:</p>
-            <p className="key-roles">
-              <span className="dynamic-words">
-                <span>ARTISTS</span>
-                <span>ENGINEERS</span>
-                <span>VIDEOGRAPHERS</span>
-                <span>MUSICIANS</span>
-                <span>DESIGNERS</span>
-                <span>PHOTOGRAPHERS</span>
-                <span>VISIONARIES</span>        
-                <span>HOBBYISTS</span>          
-                <span>DOPE HUMANS</span>          
-                <span>CREATIVES</span>
-              </span>
-            </p>
-            <p className="hero-statement">
-              working to facilitate real art, 
-              <span className="emphasis">nothing less.</span>
-            </p>
-            <p className="tagline">This is the <span className="glow">vision</span>.</p>
-          </div>
-        </section>
+        <Hero/>
 
         {/* <!-- WHY? SECTION --> */}
         {/* <!-- */}

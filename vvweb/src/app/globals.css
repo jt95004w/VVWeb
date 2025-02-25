@@ -1,21 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --gold: #C9A255;
+  --purple: #7A3FB6;
+  --black: #000;
+  --white: #fff;
+  --gray-dark: #1a1a1a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Reset & Global Defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* 
+     Base font: 100% typically equals the browser default of ~16px.
+     By using % for font-size, everything else can scale accordingly.
+  */
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 100%;
+  font-weight: 600;
+  /* Slightly bolder for all text*/
+  font-family: "Poppins", sans-serif;
+  background-color: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+  /* Keep line-height unitless or numeric for flexibility */
 }
