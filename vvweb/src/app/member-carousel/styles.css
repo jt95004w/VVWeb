@@ -1,0 +1,186 @@
+/* ===============================
+     START OF MEMBERS/ARTIST SECTION
+     =============================== */
+
+/* Section Base Styles */
+.members-section {
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+  
+  /* Section Title */
+  .section-title {
+    font-size: 2.8rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    text-shadow: 0px 0px 8px var(--gold);
+  }
+  
+  /* Category Tabs */
+  .category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Increased spacing */
+    margin-bottom: 2.5rem;
+    max-width: 80%; /* Match section width */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .tab {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0.8rem 2rem;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease-in-out;
+    color: #b7b7b7;
+    opacity: 0.65;
+  }
+  
+  .tab.active {
+    color: var(--gold);
+    border-bottom: 3px solid var(--gold);
+    font-size: 1.8rem;
+    text-shadow: 0px 0px 10px var(--gold);
+    opacity: 1;
+  }
+  
+  /* Arrows */
+  .arrow {
+    font-size: 3rem; /* Increase size */
+    color: var(--gold);
+    background: none; /* Remove background that could cause shifting */
+    border: 3px solid var(--gold); /* Add a clean, visible border */
+    border-radius: 50%; /* Keep the rounded shape */
+    width: 60px; /* Set explicit width */
+    height: 60px; /* Set explicit height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease-in-out, border-color 0.3s ease;
+  }
+  
+  .arrow:hover {
+    transform: scale(1.05);
+    border-color: var(--white); /* Subtle color shift for hover effect */
+  }
+  
+  
+  /* Carousel */
+  .carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 900px; /* Slightly larger */
+    margin: 0 auto;
+  }
+  
+  /* Member Cards */
+  .carousel-inner {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    position: relative; /* Ensures absolute positioning inside */
+    height: 350px; /* Adjust height to match card size */
+  }
+  
+  .member-card {
+    border-radius: 15px; /* Smooth, rounded edges */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    /* Remove or comment out the default transform so JS can set it */
+    /* transform: translateX(100%); */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    background: url('/images/ Profile Backing.png'),
+                linear-gradient(135deg, var(--purple), var(--gold));
+    background-size: cover, cover;
+    background-blend-mode: overlay;
+    transform: translateX(200%);
+  }
+  
+  .member-card.active {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    /* z-index: 2; */
+  }
+  
+  
+  .member-card.previous {
+    transform: translateX(-100%) !important;
+    opacity: 0 !important;
+  }
+  
+  .member-card.next {
+    transform: translateX(100%) !important;
+    opacity: 0 !important;
+  }
+  
+  /* Image Hover Effect */
+  .member-image {
+    width: 140px; /* Slightly larger */
+    height: 140px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .member-card:hover .member-image {
+    transform: scale(1.1);
+  }
+  
+  /* Member Details */
+  .member-details {
+    display: none;
+    margin-top: 1rem;
+  }
+  
+  .member-card.active .member-details {
+    display: block;
+  }
+  
+  /* Social Links */
+  .social-links {
+    display: flex;
+    gap: 10px; /* Space between icons */
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .social-links a {
+    display: inline-block;
+    width: 40px; /* Adjust size */
+    height: 40px;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  }
+  
+  .social-links a img {
+    width: 100%; /* Makes sure the images fill the anchor */
+    height: auto;
+    filter: brightness(1); /* Normal brightness */
+    transition: filter 0.3s ease-in-out;
+  }
+  
+  /* Hover Effects */
+  .social-links a:hover {
+    transform: scale(1.2); /* Slight pop effect */
+  }
+  
+  .social-links a:hover img {
+    filter: brightness(1.3); /* Slight glow effect */
+  }
+  
+  .social-links a.Youtube img {
+    margin-top: 5px; /* Adjust as needed */
+  }
+  
+  /* ===============================
+       END OF MEMBERS/ARTIST SECTION
+       =============================== */

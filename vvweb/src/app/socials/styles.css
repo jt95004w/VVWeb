@@ -1,0 +1,16 @@
+/* ===============================
+  SOCIALS SECTION
+=============================== */
+
+.socials-section {
+    background-color: var(--black);
+    text-align: center;
+    padding: 1rem 2rem;
+    margin-top: 0%;
+  }
+      
+  /* The social media buttons here use the css from the MEMBERS/ARTIST Section. 
+      
+  /* ===============================
+    END OF SOCIALS SECTION
+  =============================== */

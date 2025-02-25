@@ -1,0 +1,111 @@
+/* ===============================
+     MISSION SECTION
+     =============================== */
+     .mission-statement {
+        background-color: var(--black);
+        color: var(--white);
+        padding: 5rem 2rem;
+        text-align: center;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+        color: var(--gold);
+        margin-bottom: 3rem;
+        text-transform: uppercase;
+      }
+      
+      /* Mission Cards */
+      .mission-cards {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      
+      .mission-card {
+        position: relative;
+        color: var(--white);
+        border-radius: 8px;
+        width: 25%;
+        height: 300px; /* Set height for a proportional look */
+        padding: 2rem;
+        text-align: center;
+        cursor: pointer;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .mission-card:nth-child(1) {
+        background: url('/images/Mission/LeftMission.png'); 
+        background-size: cover;
+      }
+      
+      .mission-card:nth-child(2) {
+        background: url('/images/Mission/CenterMission.png'); 
+        background-size: cover;
+      }
+      
+      .mission-card:nth-child(3) {
+        background: url('/images/Mission/RightMission.png'); 
+        background-size: cover;
+      }
+      
+      .mission-card:hover {
+        background-color: var(--gold); /* Solid color on hover */
+        transform: scale(1.05); /* Subtle scaling */
+      }
+      
+      .mission-card::before {
+        content: attr(data-title);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.8rem;
+        color: var(--white);
+        text-transform: uppercase;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out;
+      
+        /* Border and Padding for Sub-Titles */
+        border: 2px solid var(--white); /* Adds a gold border */
+        padding: 0.5rem 1rem; /* Adds breathing room around the text */
+        border-radius: 8px; /* Rounds the border edges */
+        background-color: rgba(0, 0, 0, 0.6); /* Subtle background for contrast */
+      }
+      
+      .mission-card:hover::before {
+        opacity: 0; /* Fade out the title on hover */
+      }
+      
+      .mission-text {
+        opacity: 0;
+        visibility: hidden;
+        color: var(--black);
+        line-height: 1.5;
+        text-align: center; /* Center-align text */
+        width: 100%; /* Ensure the text spans most of the card width */
+        max-width: 100%; /* Prevent overflow */
+        padding: 0 1rem; /* Add padding for better readability */
+        box-sizing: border-box; /* Include padding in width calculations */
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+      }
+      
+      .mission-card:hover .mission-text {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      /* Hover Animation */
+      .mission-card:hover {
+        background: var(--gold); /* Change to a solid color for contrast */
+      }
+      
+      /* ===============================
+           END OF MISSION SECTION
+           =============================== */
