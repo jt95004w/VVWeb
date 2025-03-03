@@ -1,7 +1,49 @@
-import Image from 'next/image'
-import './styles.css'
+"use client"
+
+import Image from 'next/image';
+import './styles.css';
+import { useEffect, useState } from 'react';
 
 export default function Hero() {
+
+    // Carousel variables
+    // Words for carousel to spin on
+    const words = [
+        "ARTISTS", "ENGINEERS", "VIDEOGRAPHERS", "MUSICIANS", 
+        "DESIGNERS", "PHOTOGRAPHERS", "VISIONARIES", 
+        "HOBBYISTS", "DOPE HUMANS", "CREATIVES"
+    ];
+    // Starting index of carousel
+    const [currentIndex, setCurrentIndex] = useState(0);
+    // Boolean variable to let program know when to stop carousel
+    const [isFinalAnimation, setIsFinalAnimation] = useState(false);
+    // Set starting speed
+    const [speed, setSpeed] = useState(1200); 
+
+    useEffect(() => {
+
+        // Stop cycling when we reach last word
+        if (isFinalAnimation) return;
+
+        // Create carousel
+        const interval = setTimeout(() => {
+            // Go until last word
+            if (currentIndex < words.length - 1) {
+                // Update index
+                setCurrentIndex((prevIndex) => prevIndex + 1);
+                // As long as the speed is greater than 0.2ms
+                if (speed > 200) {
+                    // Decrement speed by .15ms
+                    setSpeed((prevSpeed) => Math.max(200, prevSpeed - 350));
+                }
+            }
+            else {
+                // If this is last word, alert final animation boolean
+                setIsFinalAnimation(true);
+            }
+        }, speed);
+        return () => clearTimeout(interval);
+    });
 
     return (
         <div>
@@ -65,16 +107,19 @@ export default function Hero() {
                     <p className="intro-text">A collective of:</p>
                     <p className="key-roles">
                     <span className="dynamic-words">
-                        <span>ARTISTS</span>
-                        <span>ENGINEERS</span>
-                        <span>VIDEOGRAPHERS</span>
-                        <span>MUSICIANS</span>
-                        <span>DESIGNERS</span>
-                        <span>PHOTOGRAPHERS</span>
-                        <span>VISIONARIES</span>        
-                        <span>HOBBYISTS</span>          
-                        <span>DOPE HUMANS</span>          
-                        <span>CREATIVES</span>
+                        {words.map((word, index) => (
+                            <span
+                                key={index}
+                                className={`word 
+                                    ${index < currentIndex ? "inactive" : ""}
+                                    ${index === currentIndex ? "active" : ""} 
+                                    ${index === words.length - 1 ? "final-word" : ""} 
+                                    ${isFinalAnimation && index === words.length - 1 ? "final-animate" : ""}
+                                `}
+                            >
+                                {word}
+                            </span>
+                        ))}
                     </span>
                     </p>
                     <p className="hero-statement">
