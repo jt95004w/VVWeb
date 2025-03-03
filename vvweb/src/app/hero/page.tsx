@@ -20,6 +20,11 @@ export default function Hero() {
     // Set starting speed
     const [speed, setSpeed] = useState(1200); 
 
+    // Refs for parallax elements
+    // const logoRef = useRef(null);
+    // const leftImageRef = useRef(null);
+    // const rightImageRef = useRef(null);
+
     useEffect(() => {
 
         // Stop cycling when we reach last word
@@ -43,6 +48,30 @@ export default function Hero() {
             }
         }, speed);
         return () => clearTimeout(interval);
+    });
+
+    // Handles the scrolling parallax effect
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+
+            const logo = document.querySelector(".parallax-image") as HTMLElement | null;
+            const leftImage = document.querySelector(".parallax-left") as HTMLElement | null;
+            const rightImage = document.querySelector(".parallax-right") as HTMLElement | null;
+
+            if (logo) {
+                logo.style.transform = `translateY(${scrollY * 0.2}px)`;
+            }
+            if (leftImage) {
+                leftImage.style.transform = `translateY(${scrollY * 0.03}px)`;
+            }
+            if (rightImage) {
+                rightImage.style.transform = `translateY(${scrollY * 0.05}px)`;
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     });
 
     return (
@@ -75,7 +104,7 @@ export default function Hero() {
                     alt="Logo" 
                     width={80} 
                     height={80} 
-                    className="relative mt-[-6] mb-[2 z-[5]"
+                    className="relative mt-[-6] mb-[2 z-[5] parallax-image"
                     style={{ width: "30%", height: "auto" }}
                 />
                 
@@ -87,7 +116,7 @@ export default function Hero() {
                         alt="Left Texture" 
                         width={80} 
                         height={80} 
-                        className="w-[15%] transform translate-y-0 -ml-[10%]"
+                        className="w-[15%] transform translate-y-0 -ml-[10%] parallax-left"
                         style={{ width: "15%", height: "auto" }}
                     />
 
@@ -96,7 +125,7 @@ export default function Hero() {
                         alt="Right Texture" 
                         width={80} 
                         height={80} 
-                        className="w-[15%] transform translate-y-0 -mr-[10%]"
+                        className="w-[15%] transform translate-y-0 -mr-[10%] parallax-right"
                         style={{ width: "15%", height: "auto" }}
                     /> 
                 </div>
