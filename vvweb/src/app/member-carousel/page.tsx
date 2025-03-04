@@ -1,6 +1,78 @@
+"use client"
+
 import './styles.css';
+// import Image from 'next/image';
+// import { motion, AnimatePresence } from "framer-motion";
+import { useState } from 'react';
+import { Carousel } from 'react-bootstrap';
+import { members as importedMembers } from '../../../public/jsons/Members.json';
+
 
 export default function MemberCarousel() {
+
+    const { artists } = importedMembers;
+
+    const members = [
+        {
+            name: "GEØ",
+            category: "artists",
+            image: "/images/Profiles/Potential Profile Backing.png",
+        },
+        {
+            name: "Vrishabh",
+            category: "artists",
+            image: "/images/Profiles/Potential Profile Backing.png",
+        },
+        {
+            name: "Hooper James",
+            category: "artists",
+            image: "/images/members/artist1.jpg",
+        },
+        {
+            name: "AvThaKidd",
+            category: "artists",
+            image: "/images/members/artist1.jpg",
+        },
+        {
+            name: "Griffin Louis LaFlam",
+            category: "engineers",
+            image: "/images/members/artist1.jpg",
+        },
+        {
+            name: "EZRA",
+            category: "engineers",
+            image: "/images/members/artist1.jpg",
+        },
+        {
+            name: "ADAM ALEXANDER",
+            category: "videographers",
+            image: "/images/members/artist1.jpg",
+        },
+        {
+            name: "SAMSUNG CAMERA",
+            category: "photographers",
+            image: "/images/members/artist1.jpg",
+        },
+        {
+            name: "JAMBA TINO",
+            category: "editors",
+            image: "/images/members/artist1.jpg",
+        },
+    ];
+
+    const categories = ["artists", "engineers", "videographers", "photographers", "editors"];
+
+    const [selectedCategory, setSelectedCategory] = useState("artists");
+    const [index, setIndex] = useState(0);
+
+    const filteredMembers = members.filter((member) => member.category === selectedCategory);
+
+    const nextSlide = () => setIndex((prev) => (prev + 1) % filteredMembers.length);
+    const prevSlide = () => setIndex((prev) => (prev - 1 + filteredMembers.length) % filteredMembers.length);
+
+    const handleSelect = (selectedIndex, e) => {
+        setIndex(selectedIndex);
+    };
 
     return (
 
@@ -8,211 +80,49 @@ export default function MemberCarousel() {
 
             {/* <!-- Member Carousel --> */}
             <section id="members" className="members-section slide-in">
-            <h2 className="section-title">Meet the Collective</h2> 
-            {/* <!-- New Title --> */}
+                <h2 className="section-title">Meet the Collective</h2> 
+                {/* <!-- New Title --> */}
+                
+                {/* <!-- Category Tabs --> */}
+                <div className="category-tabs">
+                    <span className="tab active" data-category="artists">Artists</span>
+                    <span className="tab" data-category="engineers">Engineers</span>
+                    <span className="tab" data-category="videographers">Videographers</span>
+                    <span className="tab" data-category="photographers">Photographers</span>
+                    <span className="tab" data-category="editors">Editors</span>
+                </div>
+
+                <Carousel activeIndex={index} onSelect={handleSelect}>
+                    {artists.map((artist) => (
+                        <Carousel.Item key={artist.id} className="" interval={4000}>
+                            <div className="member-card" data-category="artists">
+                                {/* <img src="images\Profiles\Potential Profile Backing.png" alt="Vrishabh" className="member-image" /> */}
+                                <h3 className="member-name">{artist.name}</h3>
+                                <div className="member-details">
+                                    <p className="member-bio">Brief artist description here.</p>
+                                    <div className="social-links">
+                                        {/* <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
+                                            <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify">
+                                        </a> */}
+                                        {/* <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
+                                            <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music">
+                                        </a> */}
+                                        {/* <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
+                                            <img src="images\Socials\Instagram.png" alt="Instagram">
+                                        </a> */}
+                                    </div>
+                                </div>
+                            </div>
+                        </Carousel.Item>
+                    ))}
+                </Carousel>
             
-            {/* <!-- Category Tabs --> */}
-            <div className="category-tabs">
-                <span className="tab active" data-category="artists">Artists</span>
-                <span className="tab" data-category="engineers">Engineers</span>
-                <span className="tab" data-category="videographers">Videographers</span>
-                <span className="tab" data-category="photographers">Photographers</span>
-                <span className="tab" data-category="editors">Editors</span>
-            </div>
             
-            {/* <!-- Member Carousel --> */}
-            <div className="carousel">
-                <button className="arrow left-arrow">&lt;</button> 
-                {/* <!-- Left Arrow --> */}
-                <div className="carousel-inner">
-                {/* <!-- ARTISTS --> */}
-                <div className="member-card" data-category="artists">
-                    <img src="images\Profiles\Potential Profile Backing.png" alt="GEØ" className="member-image" />
-                    <h3 className="member-name">GEØ</h3>
-                    <div className="member-details">
-                    <p className="member-bio">Brief artist description here.</p>
-                    <div className="social-links">
-                        <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
-                        <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
-                        <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
-                        <img src="images\Socials\Instagram.png" alt="Instagram"/>
-                        </a>
-                    </div>
-                    </div>
-                </div>
-                
-                <div className="member-card" data-category="artists">
-                    <img src="images\Profiles\Potential Profile Backing.png" alt="Vrishabh" className="member-image" />
-                    <h3 className="member-name">Vrishabh</h3>
-                    <div className="member-details">
-                    <p className="member-bio">Brief artist description here.</p>
-                    <div className="social-links">
-                        <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
-                        <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
-                        <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
-                        <img src="images\Socials\Instagram.png" alt="Instagram"/>
-                        </a>
-                    </div>
-                    </div>
-                </div>
-                
-                <div className="member-card" data-category="artists">
-                    <img src="images/members/artist1.jpg" alt="Hooper James" className="member-image" />
-                    <h3 className="member-name">Hooper James</h3>
-                    <div className="member-details">
-                    <p className="member-bio">Brief artist description here.</p>
-                    <div className="social-links">
-                        <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
-                        <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
-                        <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
-                        <img src="images\Socials\Instagram.png" alt="Instagram"/>
-                        </a>
-                    </div>
-                    </div>
-                </div>
-                
-                <div className="member-card" data-category="artists">
-                    <img src="images/members/artist1.jpg" alt="AvThaKidd" className="member-image" />
-                    <h3 className="member-name">AvThaKidd</h3>
-                    <div className="member-details">
-                    <p className="member-bio">Brief artist description here.</p>
-                    <div className="social-links">
-                        <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
-                        <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
-                        <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
-                        <img src="images\Socials\Instagram.png" alt="Instagram"/>
-                        </a>
-                    </div>
-                    </div>
-                </div>
-
-                {/* <!-- ENGINEERS --> */}
-                <div className="member-card" data-category="engineers">
-                    <img src="images/members/artist1.jpg" alt="Griffin Louis LaFlam" className="member-image" />
-                    <h3 className="member-name">Griffin Louis LaFlam</h3>
-                    <div className="member-details">
-                    <p className="member-bio">Brief artist description here.</p>
-                    <div className="social-links">
-                        <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
-                        <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
-                        <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
-                        <img src="images\Socials\Instagram.png" alt="Instagram"/>
-                        </a>
-                    </div>
-                    </div>
-                </div>
-
-                <div className="member-card" data-category="engineers">
-                    <img src="images/members/artist1.jpg" alt="EZRA" className="member-image" />
-                    <h3 className="member-name">EZRA</h3>
-                    <div className="member-details">
-                    <p className="member-bio">Brief artist description here.</p>
-                    <div className="social-links">
-                        <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
-                        <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
-                        <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
-                        <img src="images\Socials\Instagram.png" alt="Instagram"/>
-                        </a>
-                    </div>
-                    </div>
-                </div>
-
-                {/* <!-- VIDEOGRAPHERS --> */}
-
-                <div className="member-card" data-category="videographers">
-                    <img src="images/members/artist1.jpg" alt="AAA" className="member-image" />
-                    <h3 className="member-name">ADAM ALEXANDER</h3>
-                    <div className="member-details">
-                    <div className="social-links">
-                        <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
-                        <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
-                        <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
-                        <img src="images\Socials\Instagram.png" alt="Instagram"/>
-                        </a>
-                    </div>
-                    </div>
-                </div>
-
-                {/* <!-- PHOTOGRAPHERS --> */}
-
-                <div className="member-card" data-category="photographers">
-                    <img src="images/members/artist1.jpg" alt="SAMSUNG CAMERA" className="member-image" />
-                    <h3 className="member-name">ADAM ALEXANDER</h3>
-                    <div className="member-details">
-                    <p className="member-bio">Brief artist description here.</p>
-                    <div className="social-links">
-                        <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
-                        <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
-                        <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
-                        <img src="images\Socials\Instagram.png" alt="Instagram"/>
-                        </a>
-                    </div>
-                    </div>
-                </div>
-
-                {/* <!-- EDITORS --> */}
-
-                <div className="member-card" data-category="editors">
-                    <img src="images/members/artist1.jpg" alt="JAMBA TINO" className="member-image" />
-                    <h3 className="member-name">JAMBA TINO</h3>
-                    <div className="member-details">
-                    <p className="member-bio">Brief artist description here.</p>
-                    <div className="social-links">
-                        <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
-                        <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
-                        <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music"/>
-                        </a>
-                        <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
-                        <img src="images\Socials\Instagram.png" alt="Instagram"/>
-                        </a>
-                    </div>  
-                    </div>
-                </div>
-
-
-                </div>          
-                <button className="arrow right-arrow">&gt;</button> 
-                {/* <!-- Right Arrow --> */}
-            </div>
             </section>
             {/* <!-- END OF MEMBERS SECTION --> */}
 
         </div>
 
-    )
+    );
 
 }

@@ -1,0 +1,34 @@
+{
+    "members": {
+
+        "artists": [
+
+            {
+                "id": 1,
+                "name": "GEØ",
+                "category": "artists",
+                "image": "/images/Profiles/Potential Profile Backing.png"
+            },
+            {
+                "id": 2,
+                "name": "Vrishabh",
+                "category": "artists",
+                "image": "/images/Profiles/Potential Profile Backing.png"
+            },
+            {
+                "id": 3,
+                "name": "Hooper James",
+                "category": "artists",
+                "image": "/images/members/artist1.jpg"
+            },
+            {
+                "id": 4,
+                "name": "AvThaKidd",
+                "category": "artists",
+                "image": "/images/members/artist1.jpg"
+            }
+
+        ]
+
+    }
+}
