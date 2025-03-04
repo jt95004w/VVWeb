@@ -28,6 +28,7 @@
     max-width: 80%; /* Match section width */
     margin-left: auto;
     margin-right: auto;
+    height: 4.5rem;
   }
   
   .tab {
@@ -63,77 +64,37 @@
     justify-content: center;
     transition: transform 0.2s ease-in-out, border-color 0.3s ease;
   }
+
+  .arrow.left {
+
+    margin: 0 20 0 0;
+
+  }
+
+  .arrow.right {
+
+    margin: 0 0 0 20;
+
+  }
   
   .arrow:hover {
     transform: scale(1.05);
     border-color: var(--white); /* Subtle color shift for hover effect */
   }
   
-  
-  /* Carousel */
-  .carousel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    max-width: 900px; /* Slightly larger */
-    margin: 0 auto;
-  }
-  
-  /* Member Cards */
-  .carousel-inner {
-    display: flex;
-    overflow: hidden;
-    width: 100%;
-    position: relative; /* Ensures absolute positioning inside */
-    height: 350px; /* Adjust height to match card size */
-  }
-  
   .member-card {
     border-radius: 15px; /*Smooth, rounded edges */
-    position: absolute;
-    width: 100%;
+    min-width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
     opacity: 1;
-    /* Remove or comment out the default transform so JS can set it */
-    /* transform: translateX(100%); */
-    transition: opacity 0.5s ease, transform 0.5s ease;
     background: url('/images/ Profile Backing.png'),
                 linear-gradient(135deg, var(--purple), var(--gold));
     background-size: cover, cover;
     background-blend-mode: overlay;
-    /* transform: translateX(200%); */
-  }
-  
-  .member-card.active {
-    opacity: 1 !important;
-    transform: translateX(0) !important;
-    /* z-index: 2; */
-  }
-  
-  
-  .member-card.previous {
-    transform: translateX(-100%) !important;
-    opacity: 0 !important;
-  }
-  
-  .member-card.next {
-    transform: translateX(100%) !important;
-    opacity: 0 !important;
-  }
-  
-  /* Image Hover Effect */
-  .member-image {
-    width: 140px; /* Slightly larger */
-    height: 140px;
-    border-radius: 50%;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .member-card:hover .member-image {
-    transform: scale(1.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
   
   /* Member Details */
@@ -180,7 +141,3 @@
   .social-links a.Youtube img {
     margin-top: 5px; /* Adjust as needed */
   }
-  
-  /* ===============================
-       END OF MEMBERS/ARTIST SECTION
-       =============================== */

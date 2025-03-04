@@ -1,79 +1,29 @@
 "use client"
 
 import './styles.css';
-// import Image from 'next/image';
+import Image from 'next/image';
 // import { motion, AnimatePresence } from "framer-motion";
-import { useState } from 'react';
-import { Carousel } from 'react-bootstrap';
+import { useCallback, useState, useEffect } from 'react';
 import { members as importedMembers } from '../../../public/jsons/Members.json';
-
+import useEmblaCarousel from "embla-carousel-react"
 
 export default function MemberCarousel() {
 
-    const { artists } = importedMembers;
+    // useState variables
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+    const [currentCategory, setCurrentCategory] = useState<string>("artists");
 
-    const members = [
-        {
-            name: "GEØ",
-            category: "artists",
-            image: "/images/Profiles/Potential Profile Backing.png",
-        },
-        {
-            name: "Vrishabh",
-            category: "artists",
-            image: "/images/Profiles/Potential Profile Backing.png",
-        },
-        {
-            name: "Hooper James",
-            category: "artists",
-            image: "/images/members/artist1.jpg",
-        },
-        {
-            name: "AvThaKidd",
-            category: "artists",
-            image: "/images/members/artist1.jpg",
-        },
-        {
-            name: "Griffin Louis LaFlam",
-            category: "engineers",
-            image: "/images/members/artist1.jpg",
-        },
-        {
-            name: "EZRA",
-            category: "engineers",
-            image: "/images/members/artist1.jpg",
-        },
-        {
-            name: "ADAM ALEXANDER",
-            category: "videographers",
-            image: "/images/members/artist1.jpg",
-        },
-        {
-            name: "SAMSUNG CAMERA",
-            category: "photographers",
-            image: "/images/members/artist1.jpg",
-        },
-        {
-            name: "JAMBA TINO",
-            category: "editors",
-            image: "/images/members/artist1.jpg",
-        },
-    ];
+    const slidePrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+    const slideNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
-    const categories = ["artists", "engineers", "videographers", "photographers", "editors"];
+    const handleCurrentCategory = (category: string) => {
 
-    const [selectedCategory, setSelectedCategory] = useState("artists");
-    const [index, setIndex] = useState(0);
+        console.log(category);
+        setCurrentCategory(category);
 
-    const filteredMembers = members.filter((member) => member.category === selectedCategory);
 
-    const nextSlide = () => setIndex((prev) => (prev + 1) % filteredMembers.length);
-    const prevSlide = () => setIndex((prev) => (prev - 1 + filteredMembers.length) % filteredMembers.length);
-
-    const handleSelect = (selectedIndex, e) => {
-        setIndex(selectedIndex);
-    };
-
+    }
+    
     return (
 
         <div>
@@ -85,37 +35,62 @@ export default function MemberCarousel() {
                 
                 {/* <!-- Category Tabs --> */}
                 <div className="category-tabs">
-                    <span className="tab active" data-category="artists">Artists</span>
-                    <span className="tab" data-category="engineers">Engineers</span>
-                    <span className="tab" data-category="videographers">Videographers</span>
-                    <span className="tab" data-category="photographers">Photographers</span>
-                    <span className="tab" data-category="editors">Editors</span>
+                    <span className={`tab ${currentCategory === "artists" ? 'active' : ''}`} onClick={() => handleCurrentCategory("artists")}>
+                        Artists
+                    </span>
+                    <span className={`tab ${currentCategory === "engineers" ? 'active' : ''}`} onClick={() => handleCurrentCategory("engineers")}>
+                        Engineers
+                    </span>
+                    <span className={`tab ${currentCategory === "videographers" ? 'active' : ''}`} onClick={() => handleCurrentCategory("videographers")}>
+                        Videographers
+                    </span>
+                    <span className={`tab ${currentCategory === "photographers" ? 'active' : ''}`} onClick={() => handleCurrentCategory("photographers")}>
+                        Photographers
+                    </span>
+                    <span className={`tab ${currentCategory === "editors" ? 'active' : ''}`} onClick={() => handleCurrentCategory("editors")}>
+                        Editors
+                    </span>
                 </div>
 
-                <Carousel activeIndex={index} onSelect={handleSelect}>
-                    {artists.map((artist) => (
-                        <Carousel.Item key={artist.id} className="" interval={4000}>
-                            <div className="member-card" data-category="artists">
-                                {/* <img src="images\Profiles\Potential Profile Backing.png" alt="Vrishabh" className="member-image" /> */}
-                                <h3 className="member-name">{artist.name}</h3>
-                                <div className="member-details">
-                                    <p className="member-bio">Brief artist description here.</p>
-                                    <div className="social-links">
-                                        {/* <a href="https://www.instagram.com/vvisioncollective/" className="spotify">
-                                            <img src="images\Socials\Spotify_Primary_Logo_RGB_Green.png" alt="Spotify">
-                                        </a> */}
-                                        {/* <a href="https://www.instagram.com/vvisioncollective/" className="apple-music">
-                                            <img src="images\Socials\Apple-Music-Logo-PNG.png" alt="Apple Music">
-                                        </a> */}
-                                        {/* <a href="https://www.instagram.com/vvisioncollective/" className="instagram">
-                                            <img src="images\Socials\Instagram.png" alt="Instagram">
-                                        </a> */}
-                                    </div>
+                {/* Carousel */}
+                <div className='w-full h-[350px] flex justify-center items-center'>
+
+                    <button className='arrow left' onClick={slidePrev}> &lt; </button>
+
+                    {/* Carousel Viewport */}
+                    <div className='w-1/2 h-full overflow-hidden' ref={emblaRef}>
+
+                        {/* Cards container */}
+                        <div className='h-full flex flex-row gap-x-10'>
+
+                            {importedMembers[currentCategory].map((artist, index) => (
+
+                                // Each artist card
+                                <div key={index} className='member-card'>
+
+                                    {/* <img src="images/members/artist1.jpg" alt={artist.name} class="member-image" /> */}
+
+                                    <Image
+                                        src={artist.image}
+                                        width={100}
+                                        height={100}
+                                        alt={artist.name}
+                                        style={{ borderRadius: '50%' }} // This applies to the actual image
+                                    />
+
+                                    {artist.name}
+
                                 </div>
-                            </div>
-                        </Carousel.Item>
-                    ))}
-                </Carousel>
+
+                            ))}
+
+                        </div>
+
+                    </div>
+
+                    <button className='arrow right' onClick={slideNext}> &gt; </button>
+
+                </div>
             
             
             </section>

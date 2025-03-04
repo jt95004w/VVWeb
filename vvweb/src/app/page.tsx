@@ -7,7 +7,7 @@ import Socials from './socials/page';
 
 export default function Home() {
   return (
-    <div>
+    <div className='w-screen h-screen'>
 
         <Hero/>
 
