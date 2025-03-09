@@ -7,23 +7,46 @@ import { useCallback, useState, useEffect } from 'react';
 import { members as importedMembers } from '../../../public/jsons/Members.json';
 import useEmblaCarousel from "embla-carousel-react"
 
+interface Member {
+
+    id: number;
+    name: string;
+    image: string;
+
+}
+
 export default function MemberCarousel() {
 
     // useState variables
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-    const [currentCategory, setCurrentCategory] = useState<string>("artists");
+    const [currentCategory, setCurrentCategory] = useState("artists");
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     const slidePrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
     const slideNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
     const handleCurrentCategory = (category: string) => {
 
-        console.log(category);
         setCurrentCategory(category);
-
+        setCurrentIndex(0);
 
     }
-    
+
+    useEffect(() => {
+
+        if (!emblaApi) return; // Ensure Embla is initialized
+
+        const onSelect = () => {
+            setCurrentIndex(emblaApi.selectedScrollSnap());
+        };
+
+        emblaApi.on('select', onSelect);
+        onSelect(); // Initialize index
+
+        return () => emblaApi.off('select', onSelect); // Cleanup listener
+
+    })
+
     return (
 
         <div>
@@ -63,12 +86,15 @@ export default function MemberCarousel() {
                         {/* Cards container */}
                         <div className='h-full flex flex-row gap-x-10'>
 
-                            {importedMembers[currentCategory].map((artist, index) => (
+                            {importedMembers[currentCategory].map((artist: Member, index: number) => (
 
                                 // Each artist card
-                                <div key={index} className='member-card'>
-
-                                    {/* <img src="images/members/artist1.jpg" alt={artist.name} class="member-image" /> */}
+                                <div key={index} className={`min-w-full h-full
+                                                                    bg-[url('/images/Profiles/Potential%20Profile%20Backing.png')] 
+                                                                    rounded-3xl bg-cover bg-blend-overlay
+                                                                    flex flex-col justify-center items-center
+                                                                    transition-opacity duration-300
+                                                                    ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}>
 
                                     <Image
                                         src={artist.image}
