@@ -58,13 +58,19 @@
                 "name": "Samsung",
                 "image": "/images/Profiles/Potential Profile Backing.png"
 
+            },
+            {
+                "id": 9,
+                "name": "Samsung 2",
+                "image": "/images/Profiles/Potential Profile Backing.png"
+
             }
 
         ],
         "editors": [
 
             {
-                "id": 9,
+                "id": 10,
                 "name": "editor 1",
                 "image": "/images/Profiles/Potential Profile Backing.png"
 
