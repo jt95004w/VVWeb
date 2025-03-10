@@ -36,11 +36,6 @@ export default function Contacts() {
     
           if (data.ok) {
             setIsSubmitted(true);
-            setTimeout(() => {
-              setFormActive(false);
-              setButtonActive(false);
-              setIsSubmitted(false);
-            }, 3000);
           } else {
             console.error("FormSpree error:", data);
             alert("Submission failed. Please try again.");
@@ -57,9 +52,9 @@ export default function Contacts() {
             {/* Expanding Button */}
             <button
                 id="tapInButton"
-                className={`text-[3.2rem] px-[5.5rem] py-[2.5rem] max-w-[800px] rounded-[50px] font-bold uppercase cursor-pointer 
+                className={`text-[2.3rem] px-[5.5rem] py-[2.5rem] max-w-[800px] rounded-[50px] font-bold uppercase cursor-pointer 
                             transition-all duration-500 ease-in-out shadow-[0px_0px_25px_var(--gold)] relative 
-                            ${buttonActive ? "w-[60%] h-[600px] bg-transparent text-transparent" : "w-[30%] bg-[var(--gold)] text-[var(--white)]"}`}
+                            ${buttonActive ? "w-[60%] h-[600px] bg-transparent text-transparent" : "w-[20%] bg-[var(--gold)] text-[var(--white)]"}`}
                 onClick={handleTap}
             >
                 {!buttonActive && "Tap In"}
@@ -73,41 +68,49 @@ export default function Contacts() {
                             -mt-[600px]
                             ${formActive ? "opacity-100 scale-100" : "opacity-0 scale-90 hidden"}`}
             >
-                <form id="applicationForm" onSubmit={handleSubmit}>
-                    <label htmlFor="email" className="text-[1.6rem] font-bold text-[var(--white)] block mb-2 flex justify-center">
-                        Your Email:
-                    </label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="text-black text-[1.4rem] p-4 w-full rounded-[10px] border-none"
-                        required
-                    />
+                
+                {isSubmitted ? 
+                (
+                    <div>Thanks for your submission! We&aposll get back to you shortly...</div>
+                ) :
+                (
+                    <form id="applicationForm" onSubmit={handleSubmit}>
+                        <label htmlFor="email" className="text-[1.6rem] font-bold text-[var(--white)] block mb-2 flex justify-center">
+                            Your Email:
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="text-black text-[1.4rem] p-4 w-full rounded-[10px] border-none"
+                            required
+                        />
 
-                    <label htmlFor="message" className="text-[1.6rem] font-bold text-[var(--white)] block mb-2 flex justify-center">
-                        Tell Us About Yourself:
-                    </label>
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows={4}
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        className="text-black text-[1.4rem] p-4 w-full rounded-[10px] border-none"
-                        required
-                    ></textarea>
+                        <label htmlFor="message" className="text-[1.6rem] font-bold text-[var(--white)] block mb-2 flex justify-center">
+                            Tell Us About Yourself:
+                        </label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows={4}
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            className="text-black text-[1.4rem] p-4 w-full rounded-[10px] border-none"
+                            required
+                        ></textarea>
 
-                    <label htmlFor="message" className="text-[1.6rem] font-bold text-[var(--white)] block mb-2 flex justify-center">
-                        (Dropbox and Drive links accepted)
-                    </label>
+                        <label htmlFor="message" className="text-[1.6rem] font-bold text-[var(--white)] block mb-2 flex justify-center">
+                            (Dropbox and Drive links accepted)
+                        </label>
 
-                    <button type="submit" className="apply-btn">
-                        Apply
-                    </button>
-                </form>
+                        <button type="submit" className="apply-btn">
+                            Apply
+                        </button>
+                    </form>
+
+                )}
             </div>
         </div>
 
