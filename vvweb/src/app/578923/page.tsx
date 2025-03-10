@@ -3,7 +3,7 @@ import { submissions as importedSubmissions } from '../../../public/jsons/Submis
 
 interface Submission {
 
-    id: number;
+    id: string;
     email: string;
     message: string;
 
@@ -16,7 +16,7 @@ export default function Secrets() {
         <div className="p-6">
         <h1 className="text-3xl font-bold mb-6">Form Submissions</h1>
             <div className="space-y-6">
-                {importedSubmissions.map((submission: Submission) => (
+                {importedSubmissions.reverse().map((submission: Submission) => (
                 <div
                     key={submission.id}
                     className="p-4 border border-gray-300 rounded-lg shadow-md hover:bg-white hover:text-black transition-all duration-300"
