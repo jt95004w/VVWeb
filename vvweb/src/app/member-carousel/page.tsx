@@ -49,7 +49,7 @@ export default function MemberCarousel() {
 
     return (
 
-        <div>
+        <div className='max-w-screen'>
 
             {/* <!-- Member Carousel --> */}
             <section id="members" className="members-section slide-in">
