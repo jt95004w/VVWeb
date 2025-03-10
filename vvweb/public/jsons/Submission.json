@@ -1,21 +1,9 @@
 {
-    "submissions": [
-
-        {
-          "id": 1,
-          "email": "example1@email.com",
-          "message": "This is a message from the first submission."
-        },
-        {
-          "id": 2,
-          "email": "example2@email.com",
-          "message": "This is a message from the second submission."
-        },
-        {
-          "id": 3,
-          "email": "example3@email.com",
-          "message": "This is a message from the third submission."
-        }
-        
-    ]
+  "submissions": [
+    {
+      "id": "2025-03-10T03:35:42.592Z",
+      "email": "vrish2003@gmail.com",
+      "message": "fak fak fak "
+    }
+  ]
 }
