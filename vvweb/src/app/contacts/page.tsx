@@ -24,6 +24,8 @@ export default function Contacts() {
         const formData = new FormData();
         formData.append("email", email);
         formData.append("message", message);
+
+        // setIsSubmitted(true);
     
         try {
           const response = await fetch("https://formspree.io/f/xldgoaaj", {
@@ -71,7 +73,9 @@ export default function Contacts() {
                 
                 {isSubmitted ? 
                 (
-                    <div>Thanks for your submission! We&aposll get back to you shortly...</div>
+                    <div className='flex justify-center items-center h-[505px] text-[2.2rem]'>
+                        Thanks for your submission! We&apos;ll get back to you shortly...
+                    </div>
                 ) :
                 (
                     <form id="applicationForm" onSubmit={handleSubmit}>
