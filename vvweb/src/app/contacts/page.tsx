@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import './styles.css';
+import axios from 'axios';
 
 export default function Contacts() {
 
@@ -21,32 +22,26 @@ export default function Contacts() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
     
-        const formData = new FormData();
-        formData.append("email", email);
-        formData.append("message", message);
-
-        // setIsSubmitted(true);
+        const newSubmission = {
+          email,
+          message,
+        };
     
         try {
-          const response = await fetch("https://formspree.io/f/xldgoaaj", {
-            method: "POST",
-            body: formData,
-            headers: { Accept: "application/json" },
-          });
+          // Send the form data to the Next.js API route
+          const response = await axios.post('/api/submit', newSubmission);
     
-          const data = await response.json();
-    
-          if (data.ok) {
-            setIsSubmitted(true);
+          if (response.status === 200) {
+            setIsSubmitted(true);  // Handle form success state
           } else {
-            console.error("FormSpree error:", data);
-            alert("Submission failed. Please try again.");
+            console.error('Error:', response.data);
+            alert('Submission failed. Please try again.');
           }
         } catch (error) {
-          console.error("Error:", error);
-          alert("Something went wrong. Try again.");
+          console.error('Error:', error);
+          alert('Something went wrong. Try again.');
         }
-      };
+    };
 
     return (
 
