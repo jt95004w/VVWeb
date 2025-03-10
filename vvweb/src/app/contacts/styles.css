@@ -1,0 +1,116 @@
+/* Tap In Section */
+.tap-in-section {
+    text-align: center;
+    padding: 3rem 2rem; /* Reduced padding */
+    position: relative;
+    margin-bottom: 0; /* Remove extra spacing */
+}
+  
+/* Tap In Button */
+.tap-in-btn {
+    font-size: 3.2rem;
+    padding: 2.5rem 5.5rem;
+    background-color: var(--gold);
+    color: var(--white);
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 0px 25px var(--gold);
+    animation: glowEffect 1.5s infinite alternate ease-in-out;
+    position: relative;
+}
+  
+/* Expanded Form */
+.tap-in-form {
+    width: 60%;
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 3rem;
+    border-radius: 20px;
+    background: url('/images/Apply/ApplicationBoxPattern3.png') center/cover no-repeat;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+  
+.tap-in-form.active {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+  
+/* Submission Confirmation */
+.confirmation-message {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--gold);
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    border-radius: 20px;
+    padding-top: 2rem;
+    padding-bottom: -2rem;
+    width: 50%;
+    max-width: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+  
+/* Dark Overlay for Readability */
+.tap-in-form::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Subtle dark overlay */
+    border-radius: 20px;
+    z-index: 1;
+}
+  
+/* Ensure form content appears above the overlay */
+.tap-in-form * {
+    position: relative;
+    z-index: 2;
+}
+  
+/* FORM INPUTS (Increased size for better usability) */
+.tap-in-form label {
+    font-size: 1.6rem; /* Slightly larger labels */
+    font-weight: bold;
+    color: var(--white);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+  
+.tap-in-form input,
+.tap-in-form textarea {
+    font-size: 1.4rem; /* Bigger text fields */
+    padding: 1rem;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+}
+  
+/* APPLY BUTTON */
+.apply-btn {
+    font-size: 2.2rem; /* Bigger text */
+    padding: 1.2rem 3.5rem; /* Larger button */
+    margin-top: 1rem;
+    color: var(--white);
+    background-color: var(--gold);
+    font-weight: bold;
+    border-radius: 20px; /* More rounded edges */
+}
