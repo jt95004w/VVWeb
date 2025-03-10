@@ -1,0 +1,22 @@
+/* ===============================
+     WHY? SECTION
+     =============================== */
+
+     .why-section {
+        background-color: var(--black);
+        color: var(--white);
+        text-align: center;
+        padding: 4rem 2rem;
+      }
+      
+      .why-text {
+        font-size: 1.6rem;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        color: var(--white);
+      }
+      
+      /* ===============================
+           END OF WHY? SECTION
+           =============================== */

@@ -1,0 +1,82 @@
+{
+    "members": {
+
+        "artists": [
+
+            {
+                "id": 1,
+                "name": "GEØ",
+                "image": "/images/Profiles/Potential Profile Backing.png"
+            },
+            {
+                "id": 2,
+                "name": "Vrishabh",
+                "image": "/images/Profiles/Potential Profile Backing.png"
+            },
+            {
+                "id": 3,
+                "name": "Hooper James",
+                "image": "/images/Profiles/Potential Profile Backing.png"
+            },
+            {
+                "id": 4,
+                "name": "AvThaKidd",
+                "image": "/images/Profiles/Potential Profile Backing.png"
+            }
+
+        ],
+        "engineers": [
+
+            {
+                "id": 5,
+                "name": "Griffin Louis LaFlam",
+                "image": "/images/Profiles/Potential Profile Backing.png"
+
+            },
+            {
+                "id": 6,
+                "name": "Ezra Passalacqua",
+                "image": "/images/Profiles/Potential Profile Backing.png"
+
+            }
+
+        ],
+        "videographers": [
+
+            {
+                "id": 7,
+                "name": "Adam Alexander",
+                "image": "/images/Profiles/Potential Profile Backing.png"
+
+            }
+
+        ],
+        "photographers": [
+
+            {
+                "id": 8,
+                "name": "Samsung",
+                "image": "/images/Profiles/Potential Profile Backing.png"
+
+            },
+            {
+                "id": 9,
+                "name": "Samsung 2",
+                "image": "/images/Profiles/Potential Profile Backing.png"
+
+            }
+
+        ],
+        "editors": [
+
+            {
+                "id": 10,
+                "name": "editor 1",
+                "image": "/images/Profiles/Potential Profile Backing.png"
+
+            }
+
+        ]
+
+    }
+}
