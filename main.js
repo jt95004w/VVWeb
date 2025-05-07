@@ -55,22 +55,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
-
   const logo = document.querySelector(".parallax-image"); // The main logo
   const leftImage = document.querySelector(".parallax-left");
   const rightImage = document.querySelector(".parallax-right");
 
-  // Adjust depth for the logo
-  const depthLogo = scrollY * 0.2; // Slightly more depth for visibility
-  logo.style.transform = `translateY(${depthLogo}px) translateZ(0)`;
-
-  // Adjust depth for both images
-  const depthLeft = scrollY * 0.03;
-  const depthRight = scrollY * 0.05;
-
-  leftImage.style.transform = `translateY(${depthLeft}px) translateZ(0)`;
-  rightImage.style.transform = `translateY(${depthRight}px) translateZ(0)`;
+  // Adjust the transform effect based on viewport width
+  if (window.innerWidth < 768) {
+    logo.style.transform = `translateY(${scrollY * 0.1}px) translateZ(0)`;
+    if (leftImage) leftImage.style.transform = `translateY(${scrollY * 0.02}px) translateZ(0)`;
+    if (rightImage) rightImage.style.transform = `translateY(${scrollY * 0.02}px) translateZ(0)`;
+  } else {
+    logo.style.transform = `translateY(${scrollY * 0.2}px) translateZ(0)`;
+    if (leftImage) leftImage.style.transform = `translateY(${scrollY * 0.03}px) translateZ(0)`;
+    if (rightImage) rightImage.style.transform = `translateY(${scrollY * 0.05}px) translateZ(0)`;
+  }
 });
+
 
 /* ===============================
      FUNCTIONS FOR MEMBERS SECTION
@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
   rightArrow.addEventListener("click", () => navigate("next"));
 
   // Initialize members
-  resetMembers();
+  switchCategory("members");
   
 });
 /* ===============================
