@@ -322,6 +322,14 @@ img, video {
   text-transform: uppercase;
 }
 
+.social-title {
+  font-size: 2.8rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  text-shadow: 0px 0px 8px var(--gold);
+}
+
 /* Mission Cards */
 .mission-cards {
   display: flex;
@@ -428,6 +436,15 @@ img, video {
   color: var(--white);
   text-align: center;
   padding: 4rem 2rem;
+}
+
+.Members-title {
+  font-size: 2.8rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: -7rem;
+  margin-bottom: 2rem;
+  text-shadow: 0px 0px 8px var(--gold);
 }
 
 /* Section Title */
@@ -641,6 +658,7 @@ img, video {
   padding: 1rem 2rem; /* Reduced padding */
   position: relative;
   margin-bottom: 0; /* Remove extra spacing */
+  margin-top: -3rem;
 }
 
 /* Tap In Button */
@@ -794,7 +812,6 @@ img, video {
   .hero,
   .mission-statement,
   .members-section,
-  .tap-in-section,
   .socials-section,
   .site-footer {
     width: 100%;
@@ -804,11 +821,11 @@ img, video {
   }
 
   .logo-img {
-    flex-shrink: 0;                 /* don’t let the logo shrink past its height */
+    flex-shrink: 0;                 
     width: auto;
-    height: 50px;                   /* fixed height on mobile */
-    min-width: 0;                   /* override any desktop min-width */
-    margin-right: 1rem;             /* space between logo and nav */
+    height: 50px;                   
+    min-width: 0;                   
+    margin-right: 1rem;           
   }
 
   body {
@@ -819,14 +836,14 @@ img, video {
 
   .parallax-image {
     width: 80%;
-    margin-top: 0;
+    margin-top: -2rem;
     margin-bottom: 1rem;
   }
 
   /* Possibly reduce hero size on smaller screens */
   .hero {
     flex-direction: column;
-    padding: 2rem 1rem;
+    padding: -1rem 0rem;
   }
 
   /* Stack the header contents vertically */
@@ -865,19 +882,21 @@ img, video {
     font-size: inherit;  /* inherit smaller font-size */
   }
 
+  .dynamic-words span.active:last-of-type {
+    animation: scale-up 1s ease forwards;
+    font-size: 1.35rem;  /* inherit smaller font-size */
+    text-shadow: 
+      0 0 5px #f6b534,    /*Inner glow */
+      0 0 9px #f8c96a;   /* Maximum spread glow */
+    font-weight: bold;
+    color: rgb(255, 255, 255); /* Adds a subtle hover color shift */
+  }
+  
   /* Keep nav links horizontal and shrink gap/padding */
-  .main-nav ul {
-    flex-wrap: nowrap;
-    gap: 0.1rem;
-    overflow-x: auto;     
-    -webkit-overflow-scrolling: touch;
+  .main-nav{
+    display: none;
   }
 
-  .main-nav a {
-    white-space: nowrap;   
-    padding: 0.2rem 0.75rem;
-    font-size: 1.2rem;
-  }
 
   /* In narrower viewports, let .hero-overlay be almost full-width */
   .hero-overlay {
@@ -889,7 +908,27 @@ img, video {
 
   .intro-text {
     margin-left: 0;
+    margin-top: -1.25rem;
     font-size: 2rem; /* Adjust font-size for mobile */
+  }
+
+  .hero-overlay .hero-statement {
+    font-size: 1.7rem;
+    margin-top: -2rem;
+  }
+
+  .tagline {
+    margin-top: 1rem;
+  }
+
+  .hero-statement .emphasis {
+    text-decoration: underline;
+    display: block; 
+    font-weight: bold;
+    text-shadow: 
+      4px 4px 8px #00000049,
+      4px 4px 8px #8343c3e1;
+    font-size: 2rem;
   }
 
   /* Stack .vision-content vertically */
@@ -923,6 +962,32 @@ img, video {
     white-space: nowrap;       /* prevent overlong labels from breaking awkwardly */
   }
 
+  .section-title {
+    font-size: 2.8rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-top: -3rem;
+    margin-bottom: 2rem;
+    text-shadow: 0px 0px 8px var(--gold);
+  }
+
+  .Members-title {
+    font-size: 2.8rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-top: -8rem;
+    margin-bottom: 2rem;
+    text-shadow: 0px 0px 8px var(--gold);
+  }
+
+  .social-title {
+    font-size: 2.8rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    text-shadow: 0px 0px 8px var(--gold);
+  }
+
   /* Stack team members in a column */
   .team-grid {
     flex-direction: column;
@@ -951,11 +1016,11 @@ img, video {
     overflow: hidden;
   }
 
-  .member-card {
+  .member-card {   
     position: absolute;
     top: 0;
     background-position: center;
-    width: 70%;     
+    width: 90%;     
     height: 95%;
     transition: transform 0.8s ease, opacity 0.8s ease;
   }
@@ -994,16 +1059,15 @@ img, video {
     display: block;
     position: absolute;
     top: 50%;
-    font-size: 3rem; 
     color: var(--gold);
     background: none;  
-    border: 0.25rem solid var(--gold); 
-    border-radius: 50%; /* Keep rounded shape */
-    width: 60px; 
-    height: 60px; 
+    border: 0rem solid var(--gold); 
+    border-radius: 5%; /* Keep rounded shape */
+    width: 40px; 
+    height: 40px; 
     transform: translateY(-50%) !important;  /* Centers arrow vertically */
-    font-size: 2rem;
-    padding: 0.5rem;
+    font-size: 3rem;
+    padding: 0.3rem;
     cursor: pointer;
     z-index: 100 !important;
   }
@@ -1022,6 +1086,133 @@ img, video {
 
   .arrow:active {
     transform: translateY(-50%) !important;
+  }
+
+  .socials-section{
+    margin-top: -2rem;
+    margin-bottom: 1rem;
+  }
+
+  .social-icons {
+    margin-top: -1rem;
+  }
+
+  .tap-in-section {
+    text-align: center;
+    padding: 2rem 2rem; /* Reduced padding */
+    position: relative;
+    margin-bottom: 0; /* Remove extra spacing */
+    margin-top: -5rem;
+  }
+
+  /* Tap In Button */
+  .tap-in-btn {
+    text-align: center;
+    font-size: 3rem;  
+    padding: 2.5rem 1rem;
+    background-color: var(--gold);
+    color: var(--white);
+    font-weight: bold;
+    width: 80%;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 0px 25px var(--gold);
+    animation: glowEffect 1.5s infinite alternate ease-in-out;
+    visibility: visible; /* Ensures it stays in place */
+    position: relative;
+  }
+
+  .apply-btn {
+    transform: translateX(-9%) !important;
+    font-size: 2.2rem; /* Bigger text */
+    padding: 1.2rem 1.6rem; /* Larger button */
+    margin-top: 1rem;
+    color: var(--white);
+    background-color: var(--gold);
+    font-weight: bold;
+    border-radius: 20px; /* More rounded edges */
+  }
+
+  /* Expanded Form */
+  .tap-in-form {
+    display: none;
+    width: 80%;
+    margin: 3rem auto;
+    padding: 2rem;
+    border-radius: 20px;
+    background: url('images/Apply/ApplicationBoxPattern3.png') center/cover no-repeat;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .tap-in-form::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Subtle dark overlay */
+    border-radius: 20px;
+    z-index: 1;
+  }
+
+  .tap-in-form.slide-in {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Submission Confirmation */
+  .confirmation-message {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--gold);
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    border-radius: 20px;
+    padding-top: 2rem;
+    padding-bottom: -2rem;
+    width: 50%;
+    max-width: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  }
+
+  .tap-in-form * {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* FORM INPUTS (Increased size for better usability) */
+  .tap-in-form label {
+    font-size: 0.9rem; 
+    font-weight: bold;
+    color: var(--white);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .tap-in-form input,
+  .tap-in-form textarea {
+    font-size: 0.9rem; /* Bigger text fields */
+    padding: 0 rem;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
   }
 
 }
