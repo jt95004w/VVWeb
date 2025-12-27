@@ -1,165 +1,119 @@
-"use client"
+"use client";
 
-import Image from 'next/image';
-import './styles.css';
-import { useEffect, useState } from 'react';
+import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
+
+const rotatingWords = ["artists", "engineers", "directors", "designers", "curators", "producers"];
+
+const stats = [
+  { label: "Cities represented", value: "6" },
+  { label: "Projects shipped", value: "120+" },
+  { label: "Disciplines", value: "10" },
+];
 
 export default function Hero() {
+  const [activeWord, setActiveWord] = useState(0);
 
-    // Carousel variables
-    // Words for carousel to spin on
-    const words = [
-        "ARTISTS", "ENGINEERS", "VIDEOGRAPHERS", "MUSICIANS", 
-        "DESIGNERS", "PHOTOGRAPHERS", "VISIONARIES", 
-        "HOBBYISTS", "DOPE HUMANS", "CREATIVES"
-    ];
-    // Starting index of carousel
-    const [currentIndex, setCurrentIndex] = useState(0);
-    // Boolean variable to let program know when to stop carousel
-    const [isFinalAnimation, setIsFinalAnimation] = useState(false);
-    // Set starting speed
-    const [speed, setSpeed] = useState(1200); 
+  useEffect(() => {
+    const handle = setInterval(() => {
+      setActiveWord((index) => (index + 1) % rotatingWords.length);
+    }, 2200);
 
-    // Refs for parallax elements
-    // const logoRef = useRef(null);
-    // const leftImageRef = useRef(null);
-    // const rightImageRef = useRef(null);
+    return () => clearInterval(handle);
+  }, []);
 
-    useEffect(() => {
+  const wordList = useMemo(
+    () => rotatingWords.map((word, index) => ({ word, active: index === activeWord })),
+    [activeWord]
+  );
 
-        // Stop cycling when we reach last word
-        if (isFinalAnimation) return;
-
-        // Create carousel
-        const interval = setTimeout(() => {
-            // Go until last word
-            if (currentIndex < words.length - 1) {
-                // Update index
-                setCurrentIndex((prevIndex) => prevIndex + 1);
-                // As long as the speed is greater than 0.2ms
-                if (speed > 200) {
-                    // Decrement speed by .15ms
-                    setSpeed((prevSpeed) => Math.max(200, prevSpeed - 350));
-                }
-            }
-            else {
-                // If this is last word, alert final animation boolean
-                setIsFinalAnimation(true);
-            }
-        }, speed);
-        return () => clearTimeout(interval);
-    });
-
-    // Handles the scrolling parallax effect
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollY = window.scrollY;
-
-            const logo = document.querySelector(".parallax-image") as HTMLElement | null;
-            const leftImage = document.querySelector(".parallax-left") as HTMLElement | null;
-            const rightImage = document.querySelector(".parallax-right") as HTMLElement | null;
-
-            if (logo) {
-                logo.style.transform = `translateY(${scrollY * 0.2}px)`;
-            }
-            if (leftImage) {
-                leftImage.style.transform = `translateY(${scrollY * 0.03}px)`;
-            }
-            if (rightImage) {
-                rightImage.style.transform = `translateY(${scrollY * 0.05}px)`;
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    });
-
-    return (
-        <div>
-
-            {/* <!-- HEADER --> */}
-            <header className="site-header">
-            <Image 
-                src="/images/VV-icon whitegold.png" 
-                alt="Logo" 
-                width={80} 
-                height={80} 
-                className="logo-img"
-            />
-            <nav className="main-nav">
-                <ul>
-                <li><a href="#" className="active">Home</a></li>
-                <li><a href="#mission-statement">Mission</a></li>
-                <li><a href="#members">Team</a></li>
-                <li><a href="#tap-in">Join</a></li>
-                </ul>
-            </nav>
-            </header> 
-
-            {/* <!-- HERO SECTION --> */}
-            <section className="hero">
-                {/* <!-- Center logo --> */}
-                <Image 
-                    src="/images/VV-text.png" 
-                    alt="Logo" 
-                    width={80} 
-                    height={80} 
-                    className="relative mt-[-6] mb-[2 z-[5] parallax-image"
-                    style={{ width: "30%", height: "auto" }}
-                />
-                
-                {/* <!-- Left and Right images --> */}
-                {/* <!-- */}
-                <div className="hero-images">
-                    <Image 
-                        src="/images/VV-icon.png" 
-                        alt="Left Texture" 
-                        width={80} 
-                        height={80} 
-                        className="w-[15%] transform translate-y-0 -ml-[10%] parallax-left"
-                        style={{ width: "15%", height: "auto" }}
-                    />
-
-                    <Image 
-                        src="/images/VV-icon.png" 
-                        alt="Right Texture" 
-                        width={80} 
-                        height={80} 
-                        className="w-[15%] transform translate-y-0 -mr-[10%] parallax-right"
-                        style={{ width: "15%", height: "auto" }}
-                    /> 
-                </div>
-                {/* --> */}
-                
-                {/* <!-- Hero text --> */}
-                <div className="hero-overlay">
-                    <p className="intro-text">A collective of:</p>
-                    <p className="key-roles">
-                    <span className="dynamic-words">
-                        {words.map((word, index) => (
-                            <span
-                                key={index}
-                                className={`word 
-                                    ${index < currentIndex ? "inactive" : ""}
-                                    ${index === currentIndex ? "active" : ""} 
-                                    ${index === words.length - 1 ? "final-word" : ""} 
-                                    ${isFinalAnimation && index === words.length - 1 ? "final-animate" : ""}
-                                `}
-                            >
-                                {word}
-                            </span>
-                        ))}
-                    </span>
-                    </p>
-                    <p className="hero-statement">
-                    working to facilitate real art, 
-                    <span className="emphasis">nothing less.</span>
-                    </p>
-                    <p className="tagline">This is the <span className="glow">vision</span>.</p>
-                </div>
-            </section>
-
+  return (
+    <section className="section-shell" id="top">
+      <div className="mb-8 flex items-center justify-between rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm text-white/70">
+        <div className="flex items-center gap-3">
+          <Image src="/images/VV-icon whitegold.png" alt="Vivid Vision logo" width={44} height={44} className="h-11 w-11" />
+          <span className="text-gradient font-semibold">Vivid Vision Collective</span>
         </div>
-    )
+        <nav className="hidden items-center gap-6 sm:flex">
+          <a href="#why" className="hover:text-white">Why us</a>
+          <a href="#mission-statement" className="hover:text-white">Mission</a>
+          <a href="#members" className="hover:text-white">Roster</a>
+          <a href="#tap-in" className="hover:text-white">Join</a>
+        </nav>
+      </div>
 
+      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-purple-900/30 via-purple-600/10 to-white/5 p-8 shadow-2xl sm:p-12">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(243,199,106,0.25),transparent_30%),radial-gradient(circle_at_80%_40%,rgba(107,58,168,0.24),transparent_30%)]" />
+        <div className="relative grid gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-7">
+            <p className="badge-pill mb-4">Independent and unstoppable</p>
+            <h1 className="mb-6 text-4xl font-bold leading-tight sm:text-5xl">
+              Building a collective where <span className="text-gradient">creatives thrive</span> together.
+            </h1>
+            <p className="mb-8 max-w-2xl text-lg text-white/80">
+              We craft culture-defining experiences across music, visuals, and technology. Every release, show, and collaboration
+              is a partnership—artists keep their voice while we amplify the signal.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#members"
+                className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-purple-900 shadow-lg shadow-purple-500/20 transition hover:-translate-y-0.5 hover:shadow-xl"
+              >
+                Explore the roster
+              </a>
+              <a
+                href="#tap-in"
+                className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-white/50"
+              >
+                Pitch a project
+              </a>
+            </div>
+            <div className="mt-10 flex flex-col gap-3 rounded-2xl border border-white/5 bg-white/5 p-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-center gap-3">
+                <span className="badge-pill">A collective of</span>
+                <div className="flex items-center gap-2 text-lg font-semibold">
+                  {wordList.map(({ word, active }) => (
+                    <span
+                      key={word}
+                      className={`transition duration-500 ${active ? "text-gradient" : "text-white/40"}`}
+                    >
+                      {active ? word : "."}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <p className="text-sm text-white/70">Made for collaborators who want to move fast without losing soul.</p>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5">
+            <div className="glass-panel relative h-full rounded-2xl p-6 shadow-lg">
+              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br from-white/10 to-purple-500/30 blur-3xl" />
+              <div className="relative grid gap-4">
+                <div className="rounded-xl border border-white/10 bg-white/5 p-4 shadow-sm">
+                  <p className="text-sm text-white/60">Next drop</p>
+                  <p className="text-2xl font-semibold text-gradient">Volume 03: Live Sessions</p>
+                  <p className="mt-2 text-sm text-white/70">A curated set of studio sessions going public this season.</p>
+                </div>
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {stats.map((stat) => (
+                    <div key={stat.label} className="rounded-xl border border-white/5 bg-white/5 px-4 py-3 text-center">
+                      <div className="text-2xl font-bold text-gradient">{stat.value}</div>
+                      <p className="text-xs uppercase tracking-wide text-white/60">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="rounded-xl border border-white/5 bg-gradient-to-r from-white/10 via-purple-500/10 to-white/5 p-4 text-sm text-white/80">
+                  <p className="font-semibold text-gradient">We go beyond visuals.</p>
+                  <p className="mt-1">
+                    Strategy decks, roll-out calendars, creative sprints, and production labs tailored for artists who want a long game.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

@@ -1,118 +1,113 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
-import './styles.css';
-import axios from 'axios';
+import { FormEvent, useState } from "react";
 
 export default function Contacts() {
+  const [email, setEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
-    const [formActive, setFormActive] = useState<boolean>(false);
-    const [buttonActive, setButtonActive] = useState<boolean>(false);
-    const [email, setEmail] = useState<string>("");
-    const [message, setMessage] = useState<string>("");
-    const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError("");
 
-    const handleTap = () => {
-        setButtonActive(true);
-        setTimeout(() => {
-            setFormActive(true);
-        }, 300);
-    };
+    try {
+      const response = await fetch("/api/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, message }),
+      });
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-    
-        const newSubmission = {
-          email,
-          message,
-        };
-    
-        try {
-          // Send the form data to the Next.js API route
-          const response = await axios.post('/api/submit', newSubmission);
-    
-          if (response.status === 200) {
-            setIsSubmitted(true);  // Handle form success state
-          } else {
-            console.error('Error:', response.data);
-            alert('Submission failed. Please try again.');
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          alert('Something went wrong. Try again.');
-        }
-    };
+      if (!response.ok) {
+        throw new Error("Something went wrong. Please retry.");
+      }
 
-    return (
+      setIsSubmitted(true);
+      setEmail("");
+      setMessage("");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unexpected error");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-        <div id='tap-in' className="flex flex-col items-center justify-center">
-            {/* Expanding Button */}
-            <button
-                id="tapInButton"
-                className={`text-[2.3rem] px-[5.5rem] py-[2.5rem] max-w-[800px] rounded-[50px] font-bold uppercase cursor-pointer 
-                            transition-all duration-500 ease-in-out shadow-[0px_0px_25px_var(--gold)] relative 
-                            ${buttonActive ? "w-[60%] h-[600px] bg-transparent text-transparent" : "w-[20%] bg-[var(--gold)] text-[var(--white)]"}`}
-                onClick={handleTap}
-            >
-                {!buttonActive && "Tap In"}
-            </button>
-
-            {/* Expanding Form */}
-            <div
-                id="tapInForm"
-                className={`w-[60%] max-w-[800px] mx-auto p-12 rounded-[50px] bg-[url('/images/Apply/ApplicationBoxPattern3.png')] 
-                            bg-center bg-cover bg-no-repeat relative transition-all duration-2000
-                            -mt-[600px]
-                            ${formActive ? "opacity-100 scale-100" : "opacity-0 scale-90 hidden"}`}
-            >
-                
-                {isSubmitted ? 
-                (
-                    <div className='flex justify-center items-center h-[505px] text-[2.2rem]'>
-                        Thanks for your submission! We&apos;ll get back to you shortly...
-                    </div>
-                ) :
-                (
-                    <form id="applicationForm" onSubmit={handleSubmit}>
-                        <label htmlFor="email" className="text-[1.6rem] font-bold text-[var(--white)] block mb-2 flex justify-center">
-                            Your Email:
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            className="text-black text-[1.4rem] p-4 w-full rounded-[10px] border-none"
-                            required
-                        />
-
-                        <label htmlFor="message" className="text-[1.6rem] font-bold text-[var(--white)] block mb-2 flex justify-center">
-                            Tell Us About Yourself:
-                        </label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows={4}
-                            value={message}
-                            onChange={(e) => setMessage(e.target.value)}
-                            className="text-black text-[1.4rem] p-4 w-full rounded-[10px] border-none"
-                            required
-                        ></textarea>
-
-                        <label htmlFor="message" className="text-[1.6rem] font-bold text-[var(--white)] block mb-2 flex justify-center">
-                            (Dropbox and Drive links accepted)
-                        </label>
-
-                        <button type="submit" className="apply-btn">
-                            Apply
-                        </button>
-                    </form>
-
-                )}
-            </div>
+  return (
+    <section id="tap-in" className="section-shell">
+      <div className="mb-6 flex items-center gap-2">
+        <span className="badge-pill">Tap in</span>
+      </div>
+      <div className="grid gap-8 lg:grid-cols-12">
+        <div className="lg:col-span-5 space-y-3">
+          <h2 className="text-3xl font-semibold sm:text-4xl">Let&apos;s build the next thing together.</h2>
+          <p className="text-white/80">
+            Tell us what you are working on, the roles you need, or simply drop links to your work. We will respond with a plan within
+            48 hours.
+          </p>
+          <div className="rounded-2xl border border-white/5 bg-white/5 p-4 text-sm text-white/75">
+            <p className="font-semibold text-gradient">Prefer a quick call?</p>
+            <p className="text-white/70">Send your availability and we will schedule a 15-minute discovery session.</p>
+          </div>
         </div>
 
-    )
-
+        <div className="lg:col-span-7">
+          <div className="glass-panel rounded-3xl p-8 shadow-xl">
+            {isSubmitted ? (
+              <div className="flex h-full flex-col items-start justify-center gap-3 text-lg text-white/80">
+                <p className="text-gradient text-2xl font-semibold">Submission received.</p>
+                <p>We&apos;ll review your note and get back to you shortly with next steps.</p>
+                <button
+                  className="mt-2 w-fit rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white hover:border-white/40"
+                  onClick={() => setIsSubmitted(false)}
+                >
+                  Send another idea
+                </button>
+              </div>
+            ) : (
+              <form className="space-y-4" onSubmit={handleSubmit}>
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-semibold text-white">Email</label>
+                  <input
+                    id="email"
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-white/40 focus:outline-none"
+                    placeholder="you@example.com"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-semibold text-white">Tell us about yourself</label>
+                  <textarea
+                    id="message"
+                    required
+                    rows={5}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-white/40 focus:outline-none"
+                    placeholder="Share links, goals, and what you need help with."
+                  />
+                  <p className="text-xs text-white/60">Dropbox and Drive links are welcome.</p>
+                </div>
+                {error && <p className="text-sm text-red-300">{error}</p>}
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full rounded-full bg-gradient-to-r from-purple-600 via-purple-400 to-amber-300 px-6 py-3 text-sm font-semibold text-purple-950 shadow-lg shadow-purple-500/30 transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {isLoading ? "Sending..." : "Apply"}
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

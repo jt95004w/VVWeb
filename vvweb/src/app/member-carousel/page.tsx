@@ -1,129 +1,82 @@
-"use client"
+"use client";
 
-import './styles.css';
-import Image from 'next/image';
-// import { motion, AnimatePresence } from "framer-motion";
-import { useCallback, useState, useEffect } from 'react';
-import { members as importedMembers } from '../../../public/jsons/Members.json';
-import useEmblaCarousel from "embla-carousel-react"
+import { useMemo, useState } from "react";
+import Image from "next/image";
+import { members as importedMembers } from "../../../public/jsons/Members.json";
 
 interface Member {
-
-    id: number;
-    name: string;
-    image: string;
-
+  id: number;
+  name: string;
+  image: string;
 }
 
+const categoryLabels: Record<string, string> = {
+  artists: "Artists",
+  engineers: "Engineers",
+  videographers: "Videographers",
+  photographers: "Photographers",
+  editors: "Editors",
+};
+
 export default function MemberCarousel() {
+  const [currentCategory, setCurrentCategory] = useState<string>("artists");
 
-    // useState variables
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-    const [currentCategory, setCurrentCategory] = useState("artists");
-    const [currentIndex, setCurrentIndex] = useState(0);
+  const roster = useMemo(() => importedMembers[currentCategory] ?? [], [currentCategory]);
 
-    const slidePrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
-    const slideNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
-
-    const handleCurrentCategory = (category: string) => {
-
-        setCurrentCategory(category);
-        setCurrentIndex(0);
-
-    }
-
-    useEffect(() => {
-
-        if (!emblaApi) return; // Ensure Embla is initialized
-
-        const onSelect = () => {
-            setCurrentIndex(emblaApi.selectedScrollSnap());
-        };
-
-        emblaApi.on('select', onSelect);
-        onSelect(); // Initialize index
-
-        return () => emblaApi.off('select', onSelect); // Cleanup listener
-
-    })
-
-    return (
-
-        <div className='max-w-screen'>
-
-            {/* <!-- Member Carousel --> */}
-            <section id="members" className="members-section slide-in">
-                <h2 className="section-title">Meet the Collective</h2> 
-                {/* <!-- New Title --> */}
-                
-                {/* <!-- Category Tabs --> */}
-                <div className="category-tabs">
-                    <span className={`tab ${currentCategory === "artists" ? 'active' : ''}`} onClick={() => handleCurrentCategory("artists")}>
-                        Artists
-                    </span>
-                    <span className={`tab ${currentCategory === "engineers" ? 'active' : ''}`} onClick={() => handleCurrentCategory("engineers")}>
-                        Engineers
-                    </span>
-                    <span className={`tab ${currentCategory === "videographers" ? 'active' : ''}`} onClick={() => handleCurrentCategory("videographers")}>
-                        Videographers
-                    </span>
-                    <span className={`tab ${currentCategory === "photographers" ? 'active' : ''}`} onClick={() => handleCurrentCategory("photographers")}>
-                        Photographers
-                    </span>
-                    <span className={`tab ${currentCategory === "editors" ? 'active' : ''}`} onClick={() => handleCurrentCategory("editors")}>
-                        Editors
-                    </span>
-                </div>
-
-                {/* Carousel */}
-                <div className='w-full h-[350px] flex justify-center items-center'>
-
-                    <button className='arrow left' onClick={slidePrev}> &lt; </button>
-
-                    {/* Carousel Viewport */}
-                    <div className='w-1/2 h-full overflow-hidden' ref={emblaRef}>
-
-                        {/* Cards container */}
-                        <div className='h-full flex flex-row gap-x-10'>
-
-                            {importedMembers[currentCategory].map((artist: Member, index: number) => (
-
-                                // Each artist card
-                                <div key={index} className={`min-w-full h-full
-                                                                    bg-[url('/images/Profiles/Potential%20Profile%20Backing.png')] 
-                                                                    rounded-3xl bg-cover bg-blend-overlay
-                                                                    flex flex-col justify-center items-center
-                                                                    transition-opacity duration-300
-                                                                    ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}>
-
-                                    <Image
-                                        src={artist.image}
-                                        width={100}
-                                        height={100}
-                                        alt={artist.name}
-                                        style={{ borderRadius: '50%' }} // This applies to the actual image
-                                    />
-
-                                    {artist.name}
-
-                                </div>
-
-                            ))}
-
-                        </div>
-
-                    </div>
-
-                    <button className='arrow right' onClick={slideNext}> &gt; </button>
-
-                </div>
-            
-            
-            </section>
-            {/* <!-- END OF MEMBERS SECTION --> */}
-
+  return (
+    <section id="members" className="section-shell">
+      <div className="mb-6 flex items-center justify-between">
+        <div>
+          <p className="badge-pill mb-2">Collective roster</p>
+          <h2 className="text-3xl font-semibold sm:text-4xl">Meet the people shaping the vision.</h2>
         </div>
+      </div>
 
-    );
+      <div className="mb-6 flex flex-wrap gap-3">
+        {Object.keys(categoryLabels).map((categoryKey) => (
+          <button
+            key={categoryKey}
+            onClick={() => setCurrentCategory(categoryKey)}
+            className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${
+              currentCategory === categoryKey
+                ? "border-white/40 bg-white/10 text-white"
+                : "border-white/10 bg-white/5 text-white/70 hover:border-white/30"
+            }`}
+          >
+            {categoryLabels[categoryKey]}
+          </button>
+        ))}
+      </div>
 
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {roster.map((member: Member) => (
+          <div
+            key={member.id}
+            className="glass-panel relative overflow-hidden rounded-2xl p-5 shadow-lg transition hover:-translate-y-1"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-purple-900/10 to-transparent" />
+            <div className="relative flex items-center gap-4">
+              <div className="h-16 w-16 overflow-hidden rounded-full border border-white/10 bg-white/10">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  width={64}
+                  height={64}
+                  className="h-16 w-16 object-cover"
+                />
+              </div>
+              <div>
+                <p className="text-lg font-semibold text-gradient">{member.name}</p>
+                <p className="text-sm uppercase tracking-wide text-white/60">{categoryLabels[currentCategory]}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-8 rounded-2xl border border-white/5 bg-white/5 p-6 text-sm text-white/75">
+        Looking for a specific collaborator? Drop us a line with the role you need and we will assemble the right pod.
+      </div>
+    </section>
+  );
 }

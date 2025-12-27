@@ -5,32 +5,72 @@
 @tailwind utilities;
 
 :root {
-  --gold: #C9A255;
-  --purple: #7A3FB6;
-  --black: #000;
-  --white: #fff;
-  --gray-dark: #1a1a1a;
+  --gold: #f3c76a;
+  --purple: #6b3aa8;
+  --purple-deep: #1d0a3f;
+  --ink: #0e0b16;
+  --slate: #0f172a;
+  --white: #ffffff;
+  --muted: #cbd5e1;
 }
 
-/* Reset & Global Defaults */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* 
-     Base font: 100% typically equals the browser default of ~16px.
-     By using % for font-size, everything else can scale accordingly.
-  */
 body {
-  font-size: 100%;
-  font-weight: 600;
-  /* Slightly bolder for all text*/
   font-family: "Poppins", sans-serif;
-  background-color: var(--black);
+  background: var(--ink);
   color: var(--white);
-  line-height: 1.6;
+  line-height: 1.7;
   overflow-x: hidden;
-  /* Keep line-height unitless or numeric for flexibility */
+}
+
+.bg-gradient {
+  background: radial-gradient(circle at 20% 20%, rgba(243, 199, 106, 0.08), transparent 30%),
+    radial-gradient(circle at 80% 0%, rgba(107, 58, 168, 0.15), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(243, 199, 106, 0.08), transparent 30%),
+    linear-gradient(180deg, #0a0a14 0%, #0c0a19 35%, #0a0a14 100%);
+  min-height: 100vh;
+}
+
+.section-shell {
+  @apply relative mx-auto max-w-6xl px-6 py-16 sm:px-10;
+}
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: var(--gold);
+}
+
+.glass-panel {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.badge-pill {
+  @apply inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-wide;
+  background: rgba(243, 199, 106, 0.12);
+  color: var(--gold);
+  border: 1px solid rgba(243, 199, 106, 0.4);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #f3c76a 0%, #ffffff 40%, #b590ff 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-grid {
+  @apply grid gap-6 sm:grid-cols-2 lg:grid-cols-3;
+}
+
+.section-divider {
+  @apply my-12 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent;
 }
