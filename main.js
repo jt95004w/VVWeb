@@ -187,57 +187,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const tapInButton = document.getElementById("tapInButton");
   const tapInForm = document.getElementById("tapInForm");
   const applicationForm = document.getElementById("applicationForm");
-
-  // Expand form when button is clicked
-  tapInButton.addEventListener("click", () => {
-    tapInForm.style.display = "block";
-    tapInButton.style.display = "none"; // Hide the button
-  });
-
-  // Handle form submission
-  applicationForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("description").value; // MATCHES Formspree's expected field name
-
-    if (!email || !message) {
-      console.error("One or more form fields are missing.");
-      alert("Please fill out all required fields.");
-      return;
-    }
-
-    // Sending data via Formspree
-    const formData = new FormData();
-    formData.append("email", email);
-    formData.append("message", message);
-
-    fetch("https://formspree.io/f/xldgoaaj", {
-      method: "POST",
-      body: formData,
-      headers: { "Accept": "application/json" }
-    })
-    .then(response => response.json())
-    .then(data => {
-      alert("Application Submitted!"); // Confirmation message
-      applicationForm.reset(); // Clear form
-      tapInForm.style.display = "none"; // Hide form after submission
-      tapInButton.style.display = "block"; // Show the button again
-    })
-    .catch(error => {
-      console.error("FormSpree error:", error);
-      alert("Something went wrong. Try again.");
-    });
-  });
-});
-
-/* ===============================
-     TAP IN FUNCTION
-     =============================== */
-document.addEventListener("DOMContentLoaded", () => {
-  const tapInButton = document.getElementById("tapInButton");
-  const tapInForm = document.getElementById("tapInForm");
-  const applicationForm = document.getElementById("applicationForm");
   const confirmationMessage = document.getElementById("confirmationMessage");
 
   if (!tapInButton || !tapInForm || !applicationForm || !confirmationMessage) {
@@ -251,7 +200,9 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       tapInForm.classList.add("active");
     }, 10);
-    tapInButton.style.visibility = "hidden"; // Keep its position
+    tapInButton.style.display = "none";
+    confirmationMessage.style.display = "none";
+    confirmationMessage.style.opacity = "0";
   });
 
   // Handle form submission
@@ -290,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
           setTimeout(() => {
             confirmationMessage.style.display = "none";
             confirmationMessage.style.height = "0"; // Remove space
-            tapInButton.style.visibility = "visible";
+            tapInButton.style.display = "block";
           }, 400);
         }, 2500);
       } else {
@@ -354,7 +305,6 @@ function debounce(func, wait = 10, immediate = true) {
 
 // Adding event listener for scroll to call debounce
 window.addEventListener('scroll', debounce(divActive));
-
 
 
 
