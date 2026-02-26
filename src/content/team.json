@@ -1,0 +1,966 @@
+[
+  {
+    "category": "members",
+    "name": "Adam Ford",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Adam.jpg",
+    "imageAlt": "Adam Ford",
+    "links": [
+      {
+        "href": "https://open.spotify.com/album/6qSLIqTnS9O53UstHTtxYu?si=O5jXW4UzSka43b3bo-k_dg&fbclid=PAZXh0bgNhZW0CMTEAAacSEI5vbSK5gwVwgngZCb4Jcucqfe18Siuoe3jFrWHbYtNw2Ai5f1TcK5yXQw_aem_uhxl3M-7L1M6-s4Ze-jfsg&nd=1&dlsi=7d1a197d57e34b82",
+        "className": "icon",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://www.instagram.com/_adam_ford?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Alexandra Holmes",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/AlexH.jpg",
+    "imageAlt": "Alexandra Holmes",
+    "links": [
+      {
+        "href": "https://www.instagram.com/alexandraseakay?igsh=NGE0a3d3ZmF6Ymlx",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Asta Motrenko",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Asta.jpg",
+    "imageAlt": "Asta Motrenko",
+    "links": [
+      {
+        "href": "https://open.spotify.com/track/4a5VmhdVY3QQJmER83dnQD?si=6KGmIAyGQZSobxLpV3OdIw&fbclid=PAZXh0bgNhZW0CMTEAAaeKr9YtPgM79CTQtqwSEtpnPF1fQ6VITMm_XWsB6PQyvqYEIq24_mjnYJJXVw_aem_dzl0e8DVHka0rsPZnvdGfQ&nd=1&dlsi=2bea499ce2424073",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://www.instagram.com/_astkka_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Aman Singh",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Cheez.jpg",
+    "imageAlt": "Aman Singh",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/3GJsFHXxjwaBuUP4TmGZUp?si=dgzandHHQ9C3s_ddSHtCBQ&nd=1&dlsi=c0506f8dc2d3456c",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/cheez/1604947918",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/cheezxd?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Chris Aviles",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Chris.jpg",
+    "imageAlt": "Chris Aviles",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/4qCMqMDT6g2ozg0ytdxlxG?si=l23dcZjaTsuujxGsudtogQ",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/avthakidd/1654655936",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://on.soundcloud.com/Zm7X8zPAuSLx3H3YA",
+        "className": "Soundcloud",
+        "icon": "/Socials/soundcloud-logopng-28186.png",
+        "alt": "Soundcloud"
+      },
+      {
+        "href": "https://www.instagram.com/avthakidd?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Ezra Passalacqua",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Ezra.jpg",
+    "imageAlt": "Ezra Passalacqua",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/5KJGPIr3UeVUMp4DtaXKUl?si=3FtN861yTQC6GapO3QlBHA",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/a-boulder-project/1793637775",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/snap_along?igsh=MXA1OTg5amJxeDVjYw==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Francis Andersen",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Francis.jpg",
+    "imageAlt": "Francis Andersen",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/0oKLzlsiZodT1MwchB35kJ?si=Ia6y1rDqTRGnIxjXCIzA-g",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/laine-truly/1780727849",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/laine_truly2?igsh=MWk1bDhqYWQwdmtpaA==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Geovanny Antunes",
+    "image": "/Profiles/headshots/Geo.png",
+    "imageAlt": "Geovanny Antunes",
+    "links": [
+      {
+        "href": "https://open.spotify.com/track/3SlHdSVW70W3mB2KWBTIqP?si=4fe883925db54a5a",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/geo-vny/1809501536",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/laine_truly2?igsh=MWk1bDhqYWQwdmtpaA==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Griffin Hochheiser",
+    "image": "/Profiles/headshots/Griffin.png",
+    "imageAlt": "Griffin Hochheiser",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/0csrnac6Brz8oXKgkwFGRv?si=RTWu7_ksRHSKewklDJAxJQ",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/louis-laflam/1633639717",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/griffinlouislaflam?igsh=a2NlM3R0aWtocDJs",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Hooper James",
+    "image": "/Profiles/headshots/Hooper.jpg",
+    "imageAlt": "Hooper James",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/2fIXwhTTPOyJumWgfUe5Mu?si=FBEUJ4dTR2GnzDx-9_TfFA",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/hooper-james/1613266433",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/hooperjamesofficial?igsh=MW1ieGdoMmd0OWMyMw==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Jo\u00e3o Victor Borges Fontaim",
+    "image": "/Profiles/headshots/VIC.jpeg",
+    "imageAlt": "Jo\u00e3o Victor Borges Fontaim",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/1FrP7NzvMuTcA3cE1oicio?si=368_ZV0YTlWNKnIBzwrVvQ",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/vais/1803895050",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/vais.xv?igsh=MTBhNmo4aHZrZnBlYQ==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Joaquin Cuevas-Torres",
+    "image": "/Profiles/headshots/JOAQUIN.png",
+    "imageAlt": "Joaquin Cuevas-Torres",
+    "links": [
+      {
+        "href": "https://www.instagram.com/joaqo_bajo?igsh=bmtjNThkMTNrdzlo",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Jacob Torres",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Jacob.jpg",
+    "imageAlt": "Jacob Torres",
+    "links": [
+      {
+        "href": "https://open.spotify.com/track/6Uke5khIxBDhlymR78w5n0?si=57bac1cfad9c4f24",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://www.instagram.com/jtorres.204?igsh=Y2t0ajQ3NGZzazFs",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Joshua Jackson",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Josh.jpg",
+    "imageAlt": "Joshua Jackson",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/7BpPoCg1upBCRsepdo6R6V?si=yyViBNmiS9SO7S3cq-XwVg",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/jarou/1536806066",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/joshuajackson.04?igsh=NmZjdHIzN29kZnZo",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Juliana Marquez",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Juliana.jpg",
+    "imageAlt": "Juliana Marquez",
+    "links": [
+      {
+        "href": "https://www.instagram.com/julianamaro23?igsh=NG1udm1ybmt1am5z",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Justin Vaughn",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Justin.jpg",
+    "imageAlt": "Justin Vaughn",
+    "links": [
+      {
+        "href": "https://www.instagram.com/jvonnn_2?igsh=MWxvM2JqaGZhOG9ieQ==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Liam Ingraham",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Liam.jpg",
+    "imageAlt": "Liam Ingraham",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/07r2YH0PPyQNfzRqKADYsS?si=sYdwTtm-S5a_xfGzLqGGYQ",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/liam-ingraham/1620737658",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/liamingraham?igsh=MXhseTlxaHpjeHN1eg==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Matthew Ciampa",
+    "image": "/Profiles/headshots/Matty.jpg",
+    "imageAlt": "Nevaeh Duah",
+    "links": [
+      {
+        "href": "https://www.instagram.com/theamazingnevaeh?igsh=MTd3bGw3YmM0bzU0dQ==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Nevaeh Duah",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Nevaeh.jpg",
+    "imageAlt": "Nevaeh Duah",
+    "links": [
+      {
+        "href": "https://www.instagram.com/theamazingnevaeh?igsh=MTd3bGw3YmM0bzU0dQ==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Nick Cobosco",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Nick.jpg",
+    "imageAlt": "Nick Cobosco",
+    "links": [
+      {
+        "href": "https://www.instagram.com/nick.cobosco?igsh=MWF0amw3c2d0Ynh5cw==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Vrishabh Shriwardhankar",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Vrish.jpg",
+    "imageAlt": "Vrishabh Shriwardhankar",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/0xoYV7eUNlToK31Se7wCrx?si=MhS7NjkPQ9uLEi4uzMQyvg",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/vir-sind/1794861294",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/vrishabhmusic?igsh=MXZqMnNvbnk1ZnBkbA==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "members",
+    "name": "Zoe Mazzaferro",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Zoe.jpg",
+    "imageAlt": "Zoe Mazzaferro",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/0C8xX78ztv4YfyIq1VvtV1?si=pWHfOwyZRUCBVqOR4EefXw",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/voidgirl/1742911243",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/voidgirl.x3?igsh=eWduMmppZTZ3ZjB4",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Artists",
+    "name": "Vrishabh Shriwardhankar",
+    "image": "/Profiles/headshots/VirSind.png",
+    "imageAlt": "Vrishabh Shriwardhankar",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/0xoYV7eUNlToK31Se7wCrx?si=MhS7NjkPQ9uLEi4uzMQyvg",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/vir-sind/1794861294",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/vrishabhmusic?igsh=MXZqMnNvbnk1ZnBkbA==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Artists",
+    "name": "Hooper James",
+    "image": "/Profiles/headshots/Hooper.jpg",
+    "imageAlt": "Hooper James",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/2fIXwhTTPOyJumWgfUe5Mu?si=FBEUJ4dTR2GnzDx-9_TfFA",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/hooper-james/1613266433",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/hooperjamesofficial?igsh=MW1ieGdoMmd0OWMyMw==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Artists",
+    "name": "Juliana Marquez",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Juliana.jpg",
+    "imageAlt": "Juliana Marquez",
+    "links": [
+      {
+        "href": "https://www.instagram.com/julianamaro23?igsh=NG1udm1ybmt1am5z",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Artists",
+    "name": "Geovanny Antunes",
+    "image": "/Profiles/headshots/Geo.png",
+    "imageAlt": "Geovanny Antunes",
+    "links": [
+      {
+        "href": "https://open.spotify.com/track/3SlHdSVW70W3mB2KWBTIqP?si=4fe883925db54a5a",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/geo-vny/1809501536",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/laine_truly2?igsh=MWk1bDhqYWQwdmtpaA==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Artists",
+    "name": "Nevaeh Duah",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Nevaeh.jpg",
+    "imageAlt": "Nevaeh Duah",
+    "links": [
+      {
+        "href": "https://www.instagram.com/theamazingnevaeh?igsh=MTd3bGw3YmM0bzU0dQ==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Artists",
+    "name": "Joshua Jackson",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Josh.jpg",
+    "imageAlt": "Joshua Jackson",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/7BpPoCg1upBCRsepdo6R6V?si=yyViBNmiS9SO7S3cq-XwVg",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/jarou/1536806066",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/joshuajackson.04?igsh=NmZjdHIzN29kZnZo",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Artists",
+    "name": "Francis Andersen",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Francis.jpg",
+    "imageAlt": "Francis Andersen",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/0oKLzlsiZodT1MwchB35kJ?si=Ia6y1rDqTRGnIxjXCIzA-g",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/laine-truly/1780727849",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/laine_truly2?igsh=MWk1bDhqYWQwdmtpaA==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Artists",
+    "name": "Liam Ingraham",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Liam.jpg",
+    "imageAlt": "Liam Ingraham",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/07r2YH0PPyQNfzRqKADYsS?si=sYdwTtm-S5a_xfGzLqGGYQ",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/liam-ingraham/1620737658",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/liamingraham?igsh=MXhseTlxaHpjeHN1eg==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Artists",
+    "name": "Asta Motrenko",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Asta.jpg",
+    "imageAlt": "Asta Motrenko",
+    "links": [
+      {
+        "href": "https://open.spotify.com/track/4a5VmhdVY3QQJmER83dnQD?si=6KGmIAyGQZSobxLpV3OdIw&fbclid=PAZXh0bgNhZW0CMTEAAaeKr9YtPgM79CTQtqwSEtpnPF1fQ6VITMm_XWsB6PQyvqYEIq24_mjnYJJXVw_aem_dzl0e8DVHka0rsPZnvdGfQ&nd=1&dlsi=2bea499ce2424073",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://www.instagram.com/_astkka_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Artists",
+    "name": "Aman Singh",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Cheez.jpg",
+    "imageAlt": "Aman Singh",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/3GJsFHXxjwaBuUP4TmGZUp?si=dgzandHHQ9C3s_ddSHtCBQ&nd=1&dlsi=c0506f8dc2d3456c",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/cheez/1604947918",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/cheezxd?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Producers",
+    "name": "Griffin Hochheiser",
+    "image": "/Profiles/headshots/Griffin.png",
+    "imageAlt": "Griffin Hochheiser",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/0csrnac6Brz8oXKgkwFGRv?si=RTWu7_ksRHSKewklDJAxJQ",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/louis-laflam/1633639717",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/griffinlouislaflam?igsh=a2NlM3R0aWtocDJs",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Producers",
+    "name": "Zoe Mazzaferro",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Zoe.jpg",
+    "imageAlt": "Zoe Mazzaferro",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/0C8xX78ztv4YfyIq1VvtV1?si=pWHfOwyZRUCBVqOR4EefXw",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/voidgirl/1742911243",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/voidgirl.x3?igsh=eWduMmppZTZ3ZjB4",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Producers",
+    "name": "Ezra Passalacqua",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Ezra.jpg",
+    "imageAlt": "Ezra Passalacqua",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/5KJGPIr3UeVUMp4DtaXKUl?si=3FtN861yTQC6GapO3QlBHA",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/a-boulder-project/1793637775",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/snap_along?igsh=MXA1OTg5amJxeDVjYw==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Producers",
+    "name": "Justin Vaughn",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Justin.jpg",
+    "imageAlt": "Justin Vaughn",
+    "links": [
+      {
+        "href": "https://www.instagram.com/jvonnn_2?igsh=MWxvM2JqaGZhOG9ieQ==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Legislative",
+    "name": "Alexanda Holmes",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/AlexH.jpg",
+    "imageAlt": "Alexandra Holmes",
+    "links": [
+      {
+        "href": "https://www.instagram.com/alexandraseakay?igsh=NGE0a3d3ZmF6Ymlx",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Legislative",
+    "name": "Chris Aviles",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Chris.jpg",
+    "imageAlt": "Chris Aviles",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/4qCMqMDT6g2ozg0ytdxlxG?si=l23dcZjaTsuujxGsudtogQ",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/avthakidd/1654655936",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://on.soundcloud.com/Zm7X8zPAuSLx3H3YA",
+        "className": "Soundcloud",
+        "icon": "/Socials/soundcloud-logopng-28186.png",
+        "alt": "Soundcloud"
+      },
+      {
+        "href": "https://www.instagram.com/avthakidd?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Legislative",
+    "name": "Nick Cobosco",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Nick.jpg",
+    "imageAlt": "Nick Cobosco",
+    "links": [
+      {
+        "href": "https://www.instagram.com/nick.cobosco?igsh=MWF0amw3c2d0Ynh5cw==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Legislative",
+    "name": "Juliana Marquez",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Juliana.jpg",
+    "imageAlt": "Juliana Marquez",
+    "links": [
+      {
+        "href": "https://www.instagram.com/julianamaro23?igsh=NG1udm1ybmt1am5z",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Legislative",
+    "name": "Asta Motrenko",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Asta.jpg",
+    "imageAlt": "Asta Motrenko",
+    "links": [
+      {
+        "href": "https://open.spotify.com/track/4a5VmhdVY3QQJmER83dnQD?si=6KGmIAyGQZSobxLpV3OdIw&fbclid=PAZXh0bgNhZW0CMTEAAaeKr9YtPgM79CTQtqwSEtpnPF1fQ6VITMm_XWsB6PQyvqYEIq24_mjnYJJXVw_aem_dzl0e8DVHka0rsPZnvdGfQ&nd=1&dlsi=2bea499ce2424073",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://www.instagram.com/_astkka_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Legislative",
+    "name": "Hooper James",
+    "image": "/Profiles/headshots/Hooper.jpg",
+    "imageAlt": "Hooper James",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/2fIXwhTTPOyJumWgfUe5Mu?si=FBEUJ4dTR2GnzDx-9_TfFA",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/hooper-james/1613266433",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/hooperjamesofficial?igsh=MW1ieGdoMmd0OWMyMw==",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Legislative",
+    "name": "Jacob Torres",
+    "image": "/Profiles/headshots/drive-download-20250428T040202Z-001/Jacob.jpg",
+    "imageAlt": "Jacob Torres",
+    "links": [
+      {
+        "href": "https://open.spotify.com/track/6Uke5khIxBDhlymR78w5n0?si=57bac1cfad9c4f24",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://www.instagram.com/jtorres.204?igsh=Y2t0ajQ3NGZzazFs",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  },
+  {
+    "category": "Legislative",
+    "name": "Griffin Hochheiser",
+    "image": "/Profiles/headshots/Griffin.png",
+    "imageAlt": "Griffin Hochheiser",
+    "links": [
+      {
+        "href": "https://open.spotify.com/artist/0csrnac6Brz8oXKgkwFGRv?si=RTWu7_ksRHSKewklDJAxJQ",
+        "className": "spotify",
+        "icon": "/Socials/Spotify_Primary_Logo_RGB_Green.png",
+        "alt": "Spotify"
+      },
+      {
+        "href": "https://music.apple.com/us/artist/louis-laflam/1633639717",
+        "className": "apple-music",
+        "icon": "/Socials/Apple-Music-Logo-PNG.png",
+        "alt": "Apple Music"
+      },
+      {
+        "href": "https://www.instagram.com/griffinlouislaflam?igsh=a2NlM3R0aWtocDJs",
+        "className": "instagram",
+        "icon": "/Socials/Instagram.png",
+        "alt": "Instagram"
+      }
+    ]
+  }
+]
