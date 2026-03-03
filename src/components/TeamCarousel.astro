@@ -1,0 +1,46 @@
+---
+import team from '../content/team.json';
+
+const tabs = [
+  { key: 'members', label: 'Members' },
+  { key: 'Artists', label: 'Artists' },
+  { key: 'Producers', label: 'Producers' },
+  { key: 'Legislative', label: 'Legislative' }
+];
+---
+
+<section id="members" class="members-section slide-in">
+  <h2 class="section-title">Meet the Collective</h2>
+  <div class="category-tabs">
+    {
+      tabs.map((tab, index) => (
+        <span class={`tab ${index === 0 ? 'active' : ''}`} data-category={tab.key}>{tab.label}</span>
+      ))
+    }
+  </div>
+  <div class="carousel">
+    <button class="arrow left-arrow">&lt;</button>
+    <div class="carousel-inner">
+      {
+        team.map((member) => (
+          <div class="member-card" data-category={member.category}>
+            <h3 class="member-name">{member.name}</h3>
+            <img src={member.image} alt={member.imageAlt} class="member-image" />
+            <div class="member-details">
+              <div class="social-links">
+                {
+                  member.links.map((link) => (
+                    <a href={link.href} class={link.className}>
+                      <img src={link.icon} alt={link.alt} />
+                    </a>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <button class="arrow right-arrow">&gt;</button>
+  </div>
+</section>
